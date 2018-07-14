@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:weightSum="10">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#7FFFD4"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="SIGN UP"
+                android:textStyle="bold"
+                android:fontFamily="Arial"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:textColor="#000000"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#FFFFFF"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/divider_color"
+                android:textSize="16sp"
+                android:fontFamily="Arial"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+
+                android:layout_gravity="center"
+                android:text="Welcome To Back Nice! To See You"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".2">
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".8">
+            <EditText
+                android:id="@+id/etnamereg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColorHint="@color/divider_color"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:maxLength="20"
+                android:fontFamily="Arial"
+                android:inputType="text"
+                android:singleLine="true"
+                android:background="@drawable/editext_tbg"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="5dp"
+                android:gravity="center_vertical"
+                android:text=""
+                android:hint=" Username"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".1">
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".8">
+            <EditText
+                android:id="@+id/etemailreg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColorHint="@color/divider_color"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:fontFamily="Arial"
+                android:background="@drawable/editext_tbg"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="5dp"
+                android:inputType="textEmailAddress"
+                android:gravity="center_vertical"
+                android:text=""
+                android:hint=" Email"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".1">
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".8">
+            <EditText
+                android:id="@+id/etphone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColorHint="@color/divider_color"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:maxLength="10"
+                android:fontFamily="Arial"
+                android:background="@drawable/editext_tbg"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="5dp"
+                android:inputType="phone"
+                android:gravity="center_vertical"
+                android:text=""
+                android:hint=" Enter mobile no"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".1">
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".8">
+            <EditText
+                android:id="@+id/etpass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColorHint="@color/divider_color"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:fontFamily="Arial"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/editext_tbg"
+                android:paddingLeft="5dp"
+                android:inputType="textPassword"
+                android:gravity="center_vertical"
+                android:text=""
+                android:hint=" Password"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".1">
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".8">
+            <EditText
+                android:id="@+id/etconfermpass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColorHint="@color/divider_color"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:fontFamily="Arial"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/editext_tbg"
+                android:paddingLeft="5dp"
+                android:inputType="textPassword"
+                android:gravity="center_vertical"
+                android:text=""
+                android:hint=" Conferm Password"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".3">
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".8">
+            <Button
+                android:id="@+id/btnsignupreg"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="20dp"
+                android:fontFamily="Arial"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/singbtn"
+                android:text="SIGN UP"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".6">
+            <TextView
+                android:id="@+id/txtalreadyaccout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:fontFamily="Arial"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_weight=".8"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"
+                android:gravity="start|center_vertical"
+                android:text="already have an Account?"/>
+
+            <TextView
+                android:id="@+id/SignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="Arial"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_weight=".3"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"
+                android:gravity="end|center_vertical"
+                android:text="Login"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight=".6">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/divider_color"
+                android:textSize="16sp"
+                android:paddingLeft="10dp"
+                android:fontFamily="Arial"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:textAlignment="center"
+                android:text="Or sign in with social account"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".9"
+            android:layout_marginTop="1dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/btnfbreg"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:fontFamily="Arial"
+                android:drawableLeft="@drawable/ic_facebook_logo"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                android:background="#0084FF"
+                android:text="Facebook"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/btngoolglereg"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:textSize="20dp"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:fontFamily="Arial"
+                android:paddingLeft="12dp"
+                android:drawableLeft="@drawable/ic_google_plus"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/googleplusbtn"
+                android:text="Google+"
+                android:layout_height="35dp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

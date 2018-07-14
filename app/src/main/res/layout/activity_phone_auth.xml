@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#7FFFD4"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Mobile Number Verification"
+            android:textStyle="bold"
+            android:fontFamily="Arial"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:textSize="16dp"
+            android:textColor="#000000"
+            />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/field_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="10dp"
+        android:ems="10"
+        android:hint="mob no"
+        android:inputType="phone"
+        android:singleLine="true"
+        android:visibility="gone"
+        android:background="@drawable/editext_tbg"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/field_verification_code"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:singleLine="true"
+        android:background="@drawable/editext_tbg"
+        android:visibility="visible"
+        android:hint="Enter Otp"
+        android:maxLength="6"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_start_verification"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/singbtn"
+        android:text="Send OTP"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:onClick="clickStartVerification"
+        android:textColor="#ffffff"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_verify_phone"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/singbtn"
+        android:text="Verify"
+        android:visibility="visible"
+        android:textStyle="bold"
+        android:onClick="clickVerifyPhone"
+        android:textColor="#ffffff"
+        app:layout_constraintHorizontal_bias="0.902"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_resend"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="end"
+        android:background="@drawable/side_nav_bar"
+        android:text="Resend Otp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        android:onClick="clickResend"
+        android:textColor="#ffffff"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="372dp"
+        android:layout_height="47dp"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp"
+        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/field_phone_number" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="143dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="59dp"
+        android:textSize="30sp"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+
+</LinearLayout>

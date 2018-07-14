@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2F3F9E</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="divider_color">#90000000</color>
+    <color name="red">#112133</color>
+    <color name="red_text">#FF0000</color>
+
+    <color name="correct">#00C851</color>
+    <color name="wrong">#ff6768</color>
+    <color name="grey">#DCDCDC</color>
+
+    <color name="grey_text">#bebebe</color>
+    <color name="red_press">#990000</color>
+    <color name="buttonColor">#d6c058</color>
+    <color name="white">#ffffff</color>
+    <color name="yello_dark">#FECD08</color>
+    <color name="barColor"> #d6c058</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="dialog_btn">#0079ff</color>
+    <color name="dialog_view">#3E80B4</color>
+    <color name="tool_title">#212121</color>
+    <color name="text_gray">#C4C3D0</color>
+    <color name="gray">#D1cbcc</color>
+    <color name="hint_color">#808080</color>
+</resources>

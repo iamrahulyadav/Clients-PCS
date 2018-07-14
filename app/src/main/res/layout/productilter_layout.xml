@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+     <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_weight="1">
+            <CheckBox
+                android:id="@+id/icon1"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/user_back_blk"
+                android:gravity="center"
+                android:button="@null"
+                android:checked="false"
+                android:layout_alignParentEnd="true" />
+            <TextView
+                android:id="@+id/textkeys"
+                android:fontFamily="Arial"
+                android:layout_width="fill_parent"
+                android:gravity="center_vertical"
+                android:text="dfggd"
+                android:layout_marginStart="10dp"
+                android:textAllCaps="false"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/activity_horizontal_margin"/>
+        </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

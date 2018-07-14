@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    <RelativeLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#F8F5F6"
+        android:orientation="vertical"
+        >
+        <RelativeLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:minHeight="80dp"
+            android:gravity="start"
+            >
+
+            <TextView
+                android:id="@+id/resultquestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical"
+                android:inputType="textMultiLine"
+                android:text="Question"
+                android:textColor="#000000" />
+
+            <ImageView
+                android:id="@+id/quetionImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="left"
+                android:layout_below="@+id/resultquestion"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:minHeight="150dp"
+                android:scaleType="fitXY"
+
+                />
+            <TextView
+                android:id="@+id/questionbelowImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/quetionImage"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical"
+                android:inputType="textMultiLine"
+
+                android:textColor="#000000" />
+
+        </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/youranswer"
+                android:fontFamily="Arial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/layout"
+                android:minHeight="30dp"
+                android:gravity="center_vertical"
+                android:text="your_answer "
+                />
+
+
+
+            <TextView
+                android:id="@+id/correctanswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:fontFamily="Arial"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/youranswer"
+                android:minHeight="30dp"
+                android:gravity="center_vertical"
+                android:text="correct_answer"
+                />
+        <LinearLayout
+            android:layout_width="50dp"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:layout_height="match_parent"
+            android:background="@color/com_facebook_likeview_text_color"
+            android:layout_alignParentEnd="true"
+            >
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ablogo"
+            />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

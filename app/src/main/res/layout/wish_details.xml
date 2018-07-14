@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#0079ff"
+            android:layout_gravity="bottom"
+            >
+
+            <TextView
+                android:id="@+id/itemCounter"
+                android:text="Package Details"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginStart="30dp"
+                android:gravity="start|center_vertical"
+
+                />
+        </FrameLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="#F2F2F2"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textpackegename"
+                android:layout_width="0dp"
+                android:fontFamily="Arial"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight=".8"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:text="General Knowledge"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#013ADF"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#FFFF00"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:orientation="horizontal"
+            android:layout_weight=".7">
+            <TextView
+                android:id="@+id/freedemo"
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:paddingLeft="5dp"
+                android:fontFamily="Arial"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                />
+            <TextView
+                android:id="@+id/pricepackege"
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:layout_toRightOf="@+id/freedemo"
+                android:layout_marginStart="8dp"
+                android:fontFamily="Arial"
+                android:gravity="center_vertical"
+                android:text="Rs: 50"
+                android:visibility="gone"
+                android:layout_height="match_parent"
+                />
+            <TextView
+                android:id="@+id/offerprice"
+                android:layout_width="wrap_content"
+                android:fontFamily="Arial"
+                android:textColor="@color/red_text"
+                android:textSize="12.5dp"
+                android:layout_toRightOf="@+id/pricepackege"
+                android:layout_marginStart="8dp"
+                android:gravity="center_vertical"
+                android:text="Rs: 40"
+                android:visibility="gone"
+                android:layout_height="match_parent"
+                />
+            <TextView
+                android:id="@+id/percentage"
+                android:layout_width="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:visibility="gone"
+                android:layout_toRightOf="@+id/offerprice"
+                android:fontFamily="Arial"
+                android:layout_marginStart="8dp"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:text="20%"
+                />
+            <Button
+                android:id="@+id/addtocarts"
+                android:layout_width="75dp"
+                android:fontFamily="Arial"
+                android:background="@drawable/orangebtn"
+                android:textSize="10dp"
+                android:layout_gravity="end|center_vertical"
+                android:visibility="gone"
+                android:textStyle="bold"
+                android:layout_toLeftOf="@+id/buy"
+                android:textAllCaps="false"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="7.5dp"
+                android:layout_marginBottom="7.5dp"
+                android:layout_height="match_parent"
+                android:text="ADD TO CART"
+                />
+            <Button
+                android:id="@+id/buy"
+                android:layout_width="50dp"
+                android:textAllCaps="false"
+                android:textSize="10dp"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="Arial"
+                android:visibility="gone"
+                android:textStyle="bold"
+                android:background="@drawable/greenbtn"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="7.5dp"
+                android:layout_marginBottom="7.5dp"
+
+                android:layout_height="match_parent"
+                android:text="Buy"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+        <TextView
+            android:id="@+id/discriptiontext"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#FE642E"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:fontFamily="Arial"
+            android:layout_weight="1.6"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:scrollbars="horizontal"
+            android:text="An editorial team of highly skilled professionals at Arihant, works hand in glove to ensure that the students receive the best and accurate content through our books. From inception till the book comes out from print, the whole team comprising of authors"
+            android:textColor="#FFFFFF"
+            android:textSize="12dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/category_grid_view1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:nestedScrollingEnabled="false"
+                android:gravity="center"
+                android:stretchMode="columnWidth" >
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

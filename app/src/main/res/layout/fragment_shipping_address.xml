@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/grey"
+            android:gravity="start|center_vertical"
+            android:text="Your Shipping Address"
+            />
+        <EditText android:id="@+id/button5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text=""
+            android:hint="Address1"/>
+        <EditText android:id="@+id/button6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text=""
+            android:hint="Address2"/>
+        <EditText android:id="@+id/button7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text=""
+            android:hint="Post Code"/>
+        <EditText android:id="@+id/button8"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text=""
+            android:hint="Country"/>
+        <EditText android:id="@+id/button9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text=""
+            android:hint="State"/>
+        <EditText android:id="@+id/button10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text=""
+            android:hint="City"/>
+        <TextView android:id="@+id/button11"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textAlignment="textStart"
+            android:background="@color/grey"
+            android:gravity="start|center_vertical"
+            android:layout_marginTop="5dp"
+            android:text="Your Contect Info" />
+        <EditText android:id="@+id/button12"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text=""
+            android:hint="Mobile No"/>
+        <Button android:id="@+id/button13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Save Change" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/divider_color"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/softlayout"
+            android:background="@color/divider_color"
+            android:alpha=".5"
+            android:orientation="vertical"
+            android:layout_weight="2">
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:background="#ffffff"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="#F2F2F2"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#000000"
+                    android:fontFamily="Arial"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:text="SORT BY"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#9000"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_weight="2.5">
+                <ListView
+                    android:id="@+id/sortlist"
+                    android:divider="@null"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:orientation="vertical">-->
+                    <!--<TextView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:layout_marginRight="10dp"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textStyle="bold"-->
+                        <!--android:fontFamily="Arial"-->
+                        <!--android:text="Popularity"-->
+                        <!--android:layout_weight="1"/>-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:layout_marginRight="10dp"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textStyle="bold"-->
+                        <!--android:fontFamily="Arial"-->
+                        <!--android:text="Price &#45;&#45; Low To High"-->
+                        <!--android:layout_weight="1"/>-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:layout_marginRight="10dp"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textStyle="bold"-->
+                        <!--android:fontFamily="Arial"-->
+                        <!--android:text="Price &#45;&#45; High To Low"-->
+                        <!--android:layout_weight="1"/>-->
+                    <!--<TextView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:layout_marginRight="10dp"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textStyle="bold"-->
+                        <!--android:fontFamily="Arial"-->
+                        <!--android:text="Newest First"-->
+                        <!--android:layout_weight="1"/>-->
+                <!--</LinearLayout>-->
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight=".4"-->
+                    <!--android:gravity="center"-->
+                    <!--android:orientation="vertical">-->
+                    <!--<RadioGroup-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:gravity="center"-->
+                        <!--android:id="@+id/states">-->
+                        <!--<RadioButton android:id="@+id/first"-->
+                            <!--android:layout_width="30dp"-->
+                            <!--android:layout_height="30dp" />-->
+
+                        <!--<RadioButton-->
+                            <!--android:id="@+id/second"-->
+                            <!--android:fontFamily="Arial"-->
+                            <!--android:layout_width="30dp"-->
+                            <!--android:layout_height="30dp"  />-->
+
+                        <!--<RadioButton android:id="@+id/third"-->
+                            <!--android:layout_width="30dp"-->
+                            <!--android:fontFamily="Arial"-->
+                            <!--android:layout_height="30dp"  />-->
+
+                        <!--<RadioButton-->
+                            <!--android:id="@+id/fourth"-->
+                            <!--android:layout_width="30dp"-->
+                            <!--android:fontFamily="Arial"-->
+                            <!--android:layout_height="30dp" />-->
+
+                    <!--</RadioGroup>-->
+                <!--</LinearLayout>-->
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="horizontal">-->
+                <!--<TextView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_weight=".08"-->
+                <!--android:textColor="#000000"-->
+                <!--android:text="B)"/>-->
+                <!--<RadioButton-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight=".1"/>-->
+                <!---->
+                <!--<TextView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:textColor="#000000"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:text="Gujrat"/>-->
+                <!--</LinearLayout>-->
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="horizontal">-->
+                <!--<TextView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_weight=".08"-->
+                <!--android:textColor="#000000"-->
+                <!--android:text="C)"/>-->
+                <!--<RadioButton-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight=".1"/>-->
+                <!---->
+                <!--<TextView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:textColor="#000000"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:text="Delhi"/>-->
+                <!--</LinearLayout>-->
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="horizontal">-->
+                <!--<TextView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_weight=".08"-->
+                <!--android:textColor="#000000"-->
+                <!--android:text="D)"/>-->
+                <!--<RadioButton-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:checked="true"-->
+                <!--android:buttonTint="@color/divider_color"-->
+                <!--android:layout_weight=".1"/>-->
+                <!---->
+                <!--<TextView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:textColor="#000000"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:text="Uttar Pradesh"/>-->
+                <!--</LinearLayout>-->
+            </LinearLayout>
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_weight="1">-->
+            <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textStyle="bold"-->
+            <!--android:text="Popularity"-->
+            <!--android:layout_weight="1.9"/>-->
+            <!--<RadioButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight=".1"/>-->
+
+            <!--</LinearLayout>-->
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

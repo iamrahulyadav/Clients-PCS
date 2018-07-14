@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="@color/grey">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#0079ff"
+        android:layout_gravity="bottom"
+        android:layout_weight=".08"
+        >
+
+        <TextView
+            android:id="@+id/itemCounter"
+            android:text="Wishlist"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_marginStart="30dp"
+            android:gravity="start|center_vertical"
+
+            />
+    </FrameLayout>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cartList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".925"
+        android:visibility="visible"
+        android:padding="5dp"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+   <TextView
+       android:id="@+id/emptyText"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_gravity="center_vertical"
+       android:textColor="@color/black"
+       android:layout_weight=".91"
+       android:visibility="gone"
+       android:gravity="center_vertical|center"
+       android:text="No product available in Wish List."
+       />
+
+</LinearLayout>

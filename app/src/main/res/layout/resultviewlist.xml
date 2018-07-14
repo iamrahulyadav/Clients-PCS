@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:background="#F2F2F2"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight=".5">
+            <TextView
+                android:id="@+id/txtno"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:gravity="center_vertical"
+                android:text="Result Id"
+                android:fontFamily="Arial"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/txtresultid"
+                android:fontFamily="Arial"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight=".5">
+            <TextView
+                android:id="@+id/txtquiz"
+                android:fontFamily="Arial"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:gravity="center_vertical"
+                android:text="Name "
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/resultusername"
+                android:fontFamily="Arial"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight=".5">
+            <TextView
+                android:id="@+id/txtnumberofquestion"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:fontFamily="Arial"
+                android:gravity="center_vertical"
+                android:text="Quiz Name"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/txtresultquizname"
+                android:layout_width="0dp"
+                android:fontFamily="Arial"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight=".5">
+            <TextView
+                android:id="@+id/txtstartdate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:fontFamily="Arial"
+                android:gravity="center_vertical"
+                android:text="Status "
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/txtresultstatus"
+                android:fontFamily="Arial"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight=".5">
+            <TextView
+                android:id="@+id/txtenddate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:gravity="center_vertical"
+                android:text="Percentage Obtained"
+                android:fontFamily="Arial"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/txtpersentobtain"
+                android:layout_width="0dp"
+                android:fontFamily="Arial"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:fontFamily="Arial"
+                android:gravity="center_vertical"
+                android:text="Action"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/btnstart"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="1dp"
+                android:textColor="#FFFFFF"
+                android:textSize="12dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/skybtn"
+                android:gravity="center"
+                android:fontFamily="Arial"
+                android:text=" View"
+                android:layout_weight="1"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

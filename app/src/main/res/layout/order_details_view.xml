@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:focusable="true"
+    card_view:cardBackgroundColor="@color/grey"
+    android:layout_width="match_parent"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    card_view:cardCornerRadius="5dp"
+    card_view:cardUseCompatPadding="true"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+
+        >
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/orderNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="No"
+            android:textColor="@color/black"
+
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/orderNoValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="1"
+            android:textColor="@color/black"
+
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/quizName"
+            android:layout_below="@+id/orderNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentStart="true"
+            android:text="Quiz Name"
+            android:textColor="@color/black"
+
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/quizNameValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="Group D Railways"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/orderNoValue"
+            android:textColor="@color/black"
+
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_below="@+id/quizNameValue"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="Number of Questions"
+
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/noOfQuestions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/quizNameValue"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            android:text="100"
+            android:textColor="@color/black"
+
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/noOfQuestions"
+            android:layout_alignParentStart="true"
+            android:text="Start Date"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/startDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="5 may 2018"
+            android:textColor="@color/black"
+            android:layout_below="@+id/noOfQuestions"
+            android:layout_marginTop="10dp"
+
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/endDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="5 may 2019"
+            android:textColor="@color/black"
+            android:layout_below="@+id/startDate"
+            android:layout_marginTop="10dp"
+
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="End Date"
+            android:textColor="@color/black"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/startDate"
+            android:layout_marginTop="10dp"
+
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="Hindi"
+            android:textColor="@color/black"
+            android:layout_below="@+id/endDate"
+            android:layout_marginTop="10dp"
+
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Language"
+            android:textColor="@color/black"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/endDate"
+            android:layout_marginTop="10dp"
+
+            />
+          <Button
+              android:id="@+id/startQuiz"
+              android:layout_width="95dp"
+              android:text="Start Now"
+              android:padding="5dp"
+              android:layout_marginTop="15dp"
+              android:layout_below="@+id/language"
+              android:layout_alignParentEnd="true"
+              android:background="@drawable/quizbutton5"
+              android:layout_height="35dp" />
+
+    </RelativeLayout>
+    <View android:layout_height="2dp"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        />
+
+</android.support.v7.widget.CardView>

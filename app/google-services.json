@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "118986064112",
+    "firebase_url": "https://edu10-free-test-series.firebaseio.com",
+    "project_id": "edu10-free-test-series",
+    "storage_bucket": "edu10-free-test-series.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118986064112:android:fc7e66d5c9188691",
+        "android_client_info": {
+          "package_name": "edu10g.android.quiz.testseries"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118986064112-qbtf4o36e0t200lhmavtqflotrs69oi2.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "118986064112-uni4einqt25ajdpnku4a2nci49d6e2d8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6I3vyViuTaN_gPda1EFjpKBxNR8gNZC4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

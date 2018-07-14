@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="#2F3F9E"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ablogo"
+        app:civ_border_color="#DCDCDC"
+        app:civ_border_width="5dp"
+         />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="2">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="2dp"
+            android:maxLines="2"
+            android:fontFamily="Arial"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textSize="18dp"
+            android:text=""/>
+        <TextView
+            android:id="@+id/profileemal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:maxLines="2"
+            android:fontFamily="Arial"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:inputType="textCapWords"
+            android:gravity="center_vertical"
+            android:textSize="15dp"
+            android:text="PROFILE"/>
+        <TextView
+            android:id="@+id/profilename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:maxLines="2"
+            android:layout_marginTop="2dp"
+            android:fontFamily="Arial"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="11dp"
+            android:text="PROFILE NAME"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:maxLines="2"
+            android:fontFamily="Arial"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textSize="18dp"
+            android:text=""/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home" />
+        <item android:id="@+id/nav_orders"
+            android:icon="@drawable/latestoffer"
+            android:title="My Orders"
+            />
+        <item
+            android:id="@+id/nav_pastResults"
+            android:icon="@drawable/edit_profile"
+            android:title="Past Results" />
+       <!-- <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/latestoffer"
+            android:title="Latest Offer's" />
+        <item
+            android:id="@+id/nav_changepass"
+            android:icon="@drawable/change_password"
+            android:title="Change password" />
+        <item
+            android:id="@+id/nav_shipping_add"
+            android:icon="@drawable/shipping_address"
+            android:title="Shiping Address" />-->
+        <item
+            android:id="@+id/nav_Aboutus"
+            android:icon="@drawable/aboutus"
+            android:title="About Us" />
+        <item
+            android:id="@+id/nav_Contectus"
+            android:icon="@drawable/contact"
+            android:title="Contact Us" />
+        <item
+            android:id="@+id/nav_termcondition"
+            android:icon="@drawable/term_condition"
+            android:title="Terms &amp; Condition" />
+        <item
+            android:id="@+id/nav_privacy"
+            android:icon="@drawable/privacy_policy"
+            android:title="Privacy Policy" />
+
+        <item
+            android:id="@+id/nav_rateus"
+            android:icon="@drawable/ic_rate_review_black_24dp"
+            android:title="Rate Us" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout_button"
+            android:title="Logout" />
+    </group>
+
+</menu>

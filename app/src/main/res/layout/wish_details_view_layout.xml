@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:dragEdge="right"
+    app:mode="same_level"  >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="#F2F2F2"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/txtno"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:gravity="center_vertical"
+                android:text="No"
+                android:textColor="@color/black"
+                android:fontFamily="Arial"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/txtnovalue"
+                android:fontFamily="Arial"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/txtquiz"
+                android:fontFamily="Arial"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:text="Quiz name "
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/txtquizvalue"
+                android:fontFamily="Arial"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/txtnumberofquestion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:fontFamily="Arial"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:text="Number of question"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/txtnumberofquestionvalue"
+                android:layout_width="match_parent"
+                android:fontFamily="Arial"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/txtstartdate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:fontFamily="Arial"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:text="Start Date "
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/txtstartdatevalue"
+                android:fontFamily="Arial"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:textColor="@color/black"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/txtenddate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:gravity="center_vertical"
+                android:text="End Date"
+                android:textColor="@color/black"
+                android:fontFamily="Arial"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/txtenddatevalue"
+                android:layout_width="match_parent"
+                android:fontFamily="Arial"
+                android:textColor="@color/black"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/txtlanuage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:fontFamily="Arial"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:text="Language "
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/txtlanguagevalue"
+                android:fontFamily="Arial"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">edu10g</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="access_code">AVDY67DJ43BI33YDIB</string>
+    <string name="working_key">9533894257EE1022BE3346C61BE0D8C1</string>
+    <string name="merchentId">112463</string>
+    <string name="rsa_url">RSA Key Url</string>
+    <string name="action_settings">Settings</string>
+    <string name="searchhint">Search category from below list</string>
+    <string name="profilename">Demo \n demo@gmail.com</string>
+    <string name="Rs">\u20B9</string>
+    <string name="rs">\u20A8</string>
+    <string name="payment_btn_cart">Checkout Now</string>
+    <string name="button_pi">Save &#38; Next</string>
+    <string name="facebook_app_id">979569452203732</string>
+    <string name="email_enter">Please enter email address</string>
+    <string name="network_error">Oops ! Some network error occurred. Please try again.</string>
+
+    <string name="fb_login_protocol_scheme">fb979569452203732</string>
+
+</resources>

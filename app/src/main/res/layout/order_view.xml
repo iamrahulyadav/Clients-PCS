@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:padding="10dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            >
+            <TextView
+                android:id="@+id/itemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/hint_text"
+                android:textColor="@color/black"
+                android:text="Absolute Vodka "
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            >
+            <TextView
+                android:id="@+id/itemQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/hint_text"
+                android:textColor="@color/black"
+                android:layout_marginEnd="15dp"
+                android:layout_toStartOf="@+id/itemPrice"
+                android:text="1"
+                />
+
+            <TextView
+                android:id="@+id/itemPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/hint_text"
+                android:textColor="@color/black"
+                android:layout_alignParentEnd="true"
+                android:text="3280.0"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/itemDescription"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/hint_text"
+        android:textColor="@color/black"
+        android:layout_marginStart="5dp"
+        android:text="This is a SSC EXAM BOOKJ SPECIaly prepared to for students"
+        />
+    <TextView
+        android:id="@+id/itemtax"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/hint_text"
+        android:textColor="@color/black"
+        android:layout_marginStart="5dp"
+        android:text="750ml"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="10dp"
+        android:background="@color/text_gray"/>
+</LinearLayout>

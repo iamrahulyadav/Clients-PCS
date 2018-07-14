@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_weight=".78"
+            android:background="@color/white"
+            android:layout_height="0dp">
+            <TextView
+                android:layout_marginTop="10dp"
+                android:text="ORDER DETAILS"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/orderRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:scrollbars="vertical">
+            </android.support.v7.widget.RecyclerView>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight=".06"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/taxRate"
+                android:textSize="@dimen/hint_text"
+                android:gravity="start"
+                android:layout_weight=".3"
+                android:text="Total Tax"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/totalTax"
+                android:gravity="start"
+                android:textSize="16sp"
+                android:drawablePadding="5dp"
+                android:layout_weight=".7"
+                android:textColor="@color/black"
+                />
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/text_gray"
+
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight=".07"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total"
+                android:textSize="17sp"
+                android:gravity="start"
+                android:layout_weight=".3"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/totalAmount"
+                android:textSize="16sp"
+                android:drawablePadding="5dp"
+                android:gravity="start"
+                android:layout_weight=".7"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/black"
+                />
+
+
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight=".10"
+            >
+            <Button
+                android:id="@+id/payNow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="MAKE PAYMENT"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:background="@drawable/quizbutton5"
+                android:gravity="center"
+                />
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
