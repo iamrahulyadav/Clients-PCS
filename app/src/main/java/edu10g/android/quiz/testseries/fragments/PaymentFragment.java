@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -32,10 +34,10 @@ import edu10g.android.quiz.testseries.utility.AvenuesParams;
 
 public class PaymentFragment extends Fragment {
     private View rootView;
-    private TextView taxRatetxt, totalTaxtxt, totalPayableAmounttxt;
+    private TextView taxRatetxt, totalTaxtxt, totalPayableAmounttxt,totalAmount1,couponDiscount,totalProduct,appliedCode;
     private RecyclerView orderItemList;
     private ArrayList<TestCategory> bottleList;
-    private Button paymentNow;
+    private Button paymentNow,applyCode;
     public static String FROM;
     private String orderIds[];
     private String currency = "INR";
@@ -45,6 +47,9 @@ public class PaymentFragment extends Fragment {
     private String rsa_url = "https://edu10g.com/appportal/api/encrypt_data";
     private String redirectUrl = "https://edu10g.com/cart/thanks/success/";
     private String cancelUrl = "https://edu10g.com/cart/thanks/cancel/";
+    private LinearLayout itemTotalLayout,promoValueLayout,beforeCoupon,afterCoupon;
+    private EditText counponCode;
+
 
     @Nullable
     @Override
@@ -100,8 +105,20 @@ public class PaymentFragment extends Fragment {
 
         taxRatetxt = (TextView) rootView.findViewById(R.id.taxRate);
         totalTaxtxt = (TextView) rootView.findViewById(R.id.totalTax);
+        itemTotalLayout = (LinearLayout) rootView.findViewById(R.id.itemTotalLayout);
+        beforeCoupon = (LinearLayout) rootView.findViewById(R.id.beforeCoupon);
+        beforeCoupon.setVisibility(View.VISIBLE);
+        afterCoupon = (LinearLayout) rootView.findViewById(R.id.afterCoupon);
+        afterCoupon.setVisibility(View.GONE);
+        promoValueLayout = (LinearLayout) rootView.findViewById(R.id.promoValueLayout);
         totalPayableAmounttxt = (TextView) rootView.findViewById(R.id.totalAmount);
+        totalAmount1 = (TextView) rootView.findViewById(R.id.totalAmount1);
+        totalProduct = (TextView) rootView.findViewById(R.id.totalProduct);
+        couponDiscount = (TextView) rootView.findViewById(R.id.couponDiscount);
+        appliedCode = (TextView) rootView.findViewById(R.id.appliedCode);
         orderItemList = (RecyclerView) rootView.findViewById(R.id.orderRecyclerView);
+        applyCode = (Button) rootView.findViewById(R.id.applyCode);
+        counponCode = (EditText) rootView.findViewById(R.id.counponCode);
         paymentNow = (Button) rootView.findViewById(R.id.payNow);
 
         PaymentOrderAdapter adapter = new PaymentOrderAdapter(getActivity(), bottleList);
@@ -132,6 +149,14 @@ public class PaymentFragment extends Fragment {
                 }
             }
         });
+        applyCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String code = counponCode.getText().toString();
+                onCouponSet(code);
+            }
+        });
+
     }
 
 
@@ -146,6 +171,7 @@ public class PaymentFragment extends Fragment {
             double taxRate = 0.0;
             double totalTax = 0.0;
             double totalPayableAmount = 0.0;
+           // double allBottleAmounts = 0.0;
             int i = 0;
             orderIds = new String[bottleList.size()];
             for (TestCategory bottle : bottleList) {
@@ -169,17 +195,42 @@ public class PaymentFragment extends Fragment {
                 //double tax = (units*taxRate);
 
                 //totalTax = totalTax+ tax;
-                double allBottleAmounts = bottleRate * units;
+                double allBottleAmounts = ( bottleRate * units);
                 double itemTax = (allBottleAmounts * taxRate) / 100;
                 totalTax = totalTax + itemTax;
-                totalPayableAmount = totalPayableAmount + allBottleAmounts ;//+ itemTax;
+                totalPayableAmount = totalPayableAmount + allBottleAmounts + itemTax;
             }
             totalTaxtxt.setText("\u20B9"+String.valueOf(totalTax));
+            totalAmount1.setText("\u20B9"+String.valueOf(Math.round((totalPayableAmount-totalTax) * 100.0) / 100.0));
+            totalProduct.setText("\u20B9"+String.valueOf(Math.round((totalPayableAmount-totalTax) * 100.0) / 100.0));
             totalPayableAmounttxt.setText("\u20B9"+String.valueOf(Math.round(totalPayableAmount * 100.0) / 100.0));
         }catch (NullPointerException e){
             Log.e("NullPointerExcep: ",""+e.getLocalizedMessage());
         }catch (ArrayIndexOutOfBoundsException e){
             Log.e("ArrayIndex excep: ",""+e.getLocalizedMessage());
+        }catch (NumberFormatException e){
+            Log.e("NumberFormExcep: ",""+e.getLocalizedMessage());
         }
+    }
+
+    private void onCouponSet(String code){
+        try {
+            itemTotalLayout.setVisibility(View.VISIBLE);
+            promoValueLayout.setVisibility(View.VISIBLE);
+            beforeCoupon.setVisibility(View.GONE);
+            afterCoupon.setVisibility(View.VISIBLE);
+            appliedCode.setText("PROMO CODE " + code + " APPLIED.");
+            couponDiscount.setText("-1.50");
+
+            double codePreV = Double.valueOf(totalPayableAmounttxt.getText().toString().substring(1));
+            double couponV = Double.valueOf(couponDiscount.getText().toString().substring(1));
+            double afterCoupon = codePreV - couponV;
+            totalPayableAmounttxt.setText("\u20B9" + String.valueOf(Math.round(afterCoupon * 100.0) / 100.0));
+        }catch (NullPointerException e){
+            Log.e("NullPointerExcep: ",""+e.getLocalizedMessage());
+        }catch (NumberFormatException e){
+            Log.e("NumberFormExcep: ",""+e.getLocalizedMessage());
+        }
+
     }
 }

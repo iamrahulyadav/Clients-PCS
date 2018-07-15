@@ -57,13 +57,13 @@ public class PaymentOrderAdapter extends RecyclerView.Adapter<PaymentOrderAdapte
         // - replace the contents of the view with that itemsData
         try {
             viewHolder.txtViewTitle.setText(bottleData.get(position).getBrand_title());
-            viewHolder.bookDescription.setText(bottleData.get(position).getPackage_name());
+           // viewHolder.bookDescription.setText(bottleData.get(position).getPackage_name());
             if (PaymentFragment.FROM.equals("cart") || PaymentFragment.FROM.equals("direct"))
                 viewHolder.price.setText("\u20B9"+String.valueOf((bottleData.get(position).getNew_price())));
             else
                 viewHolder.price.setText("\u20B9"+String.valueOf((bottleData.get(position).getNew_price())));
-            viewHolder.count.setText(" x " + String.valueOf(bottleData.get(position).getQuantity()));
-            viewHolder.tax.setText("Tax (" + String.valueOf(18) + " %)");
+            viewHolder.count.setText(String.valueOf(bottleData.get(position).getQuantity()));
+            //.tax.setText("Tax (" + String.valueOf(18) + " %)");
         }catch (NullPointerException e){
             Log.e("NullPointerExcep: ",""+e.getLocalizedMessage());
         }catch (ArrayIndexOutOfBoundsException e){
@@ -76,20 +76,20 @@ public class PaymentOrderAdapter extends RecyclerView.Adapter<PaymentOrderAdapte
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView txtViewTitle;
-        private TextView bookDescription;
+       // private TextView bookDescription;
         private TextView price;
         private TextView count;
-        private TextView tax;
+        //private TextView tax;
 
 
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
             txtViewTitle = (TextView) itemLayoutView.findViewById(R.id.itemName);
-            bookDescription = (TextView) itemLayoutView.findViewById(R.id.itemDescription);
+           // bookDescription = (TextView) itemLayoutView.findViewById(R.id.itemDescription);
             price = (TextView) itemLayoutView.findViewById(R.id.itemPrice);
             count = (TextView) itemLayoutView.findViewById(R.id.itemQuantity);
-            tax = (TextView) itemLayoutView.findViewById(R.id.itemtax);
+           // tax = (TextView) itemLayoutView.findViewById(R.id.itemtax);
 
 
 

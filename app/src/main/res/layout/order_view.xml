@@ -3,18 +3,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:padding="10dp"
+    android:padding="5dp"
     >
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:padding="5dp"
         >
-
-
-
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +54,7 @@
 
         </RelativeLayout>
     </LinearLayout>
-    <TextView
+    <!--<TextView
         android:id="@+id/itemDescription"
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
@@ -67,7 +63,8 @@
         android:textColor="@color/black"
         android:layout_marginStart="5dp"
         android:text="This is a SSC EXAM BOOKJ SPECIaly prepared to for students"
-        />
+        />-->
+<!--
     <TextView
         android:id="@+id/itemtax"
         android:layout_marginTop="5dp"
@@ -78,6 +75,7 @@
         android:layout_marginStart="5dp"
         android:text="750ml"
         />
+-->
 
     <View
         android:layout_width="match_parent"
