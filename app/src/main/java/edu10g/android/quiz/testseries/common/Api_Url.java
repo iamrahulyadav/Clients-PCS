@@ -41,9 +41,11 @@ public class Api_Url {// http://edu10g.com/appportal/api/registration
     public static final String getFavourite="https://edu10g.com/appportal/app/wishlist/getWishlistDetail";
     public static final String removeFavourite=baseUrl+"app/wishlist/removeProductWishlist";
     public static final String updateFavourite=baseUrl+"app/quiz_result_detail";
-    public static final String couponApply="http://edu10g.com/appportal/app/Wishlist/couponApply";
-    public static final String coupon_list="http://edu10g.com/appportal/app/Wishlist/coupon_list";
-    public static final String updatemobile="http://edu10g.com/appportal/Api/updatemobile";
+    public static final String couponApply = "http://edu10g.com/appportal/app/Wishlist/couponApply";
+    public static final String coupon_list = "http://edu10g.com/appportal/app/Wishlist/coupon_list";
+    public static final String notification = "http://edu10g.com/appportal/app/home/notification";
+    public static final String updatemobile = "http://edu10g.com/appportal/Api/updatemobile";
+    public static final String updateNotifi= "http://edu10g.com/appportal/app/home/updatenotification";
    // public static final String getBannerDetails="https://edu10g.com/appportal/api/getTestseriesBanner";
 
 

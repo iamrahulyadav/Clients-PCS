@@ -885,9 +885,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private JSONObject addJsonObjects() {
         try {
-            /*[user_id] => 77
-    [pid] => 7845
-    [pid_type] => physical*/
 
             JSONObject packet = new JSONObject();
             UserSessionManager userSessionManager=new UserSessionManager(act);
@@ -929,10 +926,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
     void getCouponList(){
-        CallWebService.getInstance(act,false).hitJSONObjectVolleyWebServiceforPost(Request.Method.POST, Api_Url.coupon_list, addJsonObjects(), true, new CallBackInterface() {
+        CallWebService.getInstance(act,false).hitJSONObjectVolleyWebServiceforPost(Request.Method.POST, Api_Url.notification, addJsonObjects(), true, new CallBackInterface() {
             @Override
             public void onJsonObjectSuccess(JSONObject object) {
-                Log.d("Coupon List: ",""+object.toString());
+                Log.d("Notification List: ",""+object.toString());
                 try {
                     parseCouponList(object.toString());
 
@@ -951,7 +948,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onFailure(String str) {
 
                 Log.e("failure: ",""+str);
-                Toast.makeText(act, ""+str, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(act, ""+str, Toast.LENGTH_SHORT).show();
             }
         });
     }

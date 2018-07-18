@@ -1,8 +1,6 @@
 package edu10g.android.quiz.testseries.fragments;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,17 +22,14 @@ import java.util.ArrayList;
 
 import edu10g.android.quiz.testseries.R;
 import edu10g.android.quiz.testseries.adapters.NotificationAdapter;
-import edu10g.android.quiz.testseries.adapters.OrderAdapter;
 import edu10g.android.quiz.testseries.common.Api_Url;
 import edu10g.android.quiz.testseries.common.FixedValue;
 import edu10g.android.quiz.testseries.common.UserSessionManager;
 import edu10g.android.quiz.testseries.helpers.CallBackInterface;
 import edu10g.android.quiz.testseries.helpers.CallWebService;
 import edu10g.android.quiz.testseries.interfaces.OnRecyclerViewItemClickListener;
-import edu10g.android.quiz.testseries.models.Coupon;
-import edu10g.android.quiz.testseries.models.Orders;
+import edu10g.android.quiz.testseries.models.Notification;
 
-;
 
 /**
  * Created by vikram on 13/4/18.
@@ -43,7 +38,7 @@ import edu10g.android.quiz.testseries.models.Orders;
 public class Notifications extends Fragment {
     private View rootView;
     private RecyclerView orderList;
-    private ArrayList<Coupon> couponArrayList;
+    private ArrayList<Notification> couponArrayList;
     private NotificationAdapter notificationAdapter;
     private OnRecyclerViewItemClickListener listener;
     private TextView emptyText,itemCounter;
@@ -103,20 +98,13 @@ public class Notifications extends Fragment {
             itemCounter.setText("Notifications("+jsonArray.length()+")");
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject c = jsonArray.getJSONObject(i);
-                Coupon coupon = new Coupon();
-                coupon.setId(c.getInt("CouponId"));
-                coupon.setCouponTitle(c.getString("couponTitle"));
-                coupon.setCouponCategory(c.getString("couponCategory"));
-                coupon.setCouponSubTitle(c.getString("couponSubTitle"));
-                coupon.setCoupon_description(c.getString("coupon_description"));
-                coupon.setCouponCode(c.getString("code"));
-                coupon.setCouponType(c.getString("couponType"));
-                coupon.setCouponAmount(c.getInt("amount"));
-                coupon.setStart_date(c.getString("start_date"));
-                coupon.setEnd_date(c.getString("end_date"));
-                coupon.setMinimum_cart_value(c.getInt("minimum_cart_value"));
-                coupon.setRead(false);
-                couponArrayList.add(coupon);
+                Notification notification = new Notification();
+                notification.setId(c.getInt(""));
+                notification.setNotificationTitle(c.getString("title"));
+                notification.setNotification_description(c.getString("description"));
+                notification.setRead(c.getString("status"));
+                notification.setAdded_date(c.getString("date_added"));
+                couponArrayList.add(notification);
             }
 
             if(couponArrayList.isEmpty()){
@@ -151,7 +139,34 @@ public class Notifications extends Fragment {
     }
 
     void getCouponList(){
-        CallWebService.getInstance(getActivity(),true).hitJSONObjectVolleyWebServiceforPost(Request.Method.POST, Api_Url.coupon_list, addJsonObjects(), true, new CallBackInterface() {
+        CallWebService.getInstance(getActivity(),true).hitJSONObjectVolleyWebServiceforPost(Request.Method.POST, Api_Url.notification, addJsonObjects(), true, new CallBackInterface() {
+            @Override
+            public void onJsonObjectSuccess(JSONObject object) {
+                Log.d("Order List: ",""+object.toString());
+                try {
+                    ParseData(object.toString());
+
+                } catch (NullPointerException e) {
+
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onJsonArrarSuccess(JSONArray array) {
+                Log.d("Oder List: ",""+array.toString());
+            }
+
+            @Override
+            public void onFailure(String str) {
+
+                Log.e("failure: ",""+str);
+                Toast.makeText(getActivity(),""+str,Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    void updateNotificationList(){
+        CallWebService.getInstance(getActivity(),true).hitJSONObjectVolleyWebServiceforPost(Request.Method.POST, Api_Url.updateNotifi, addJsonObjects(), true, new CallBackInterface() {
             @Override
             public void onJsonObjectSuccess(JSONObject object) {
                 Log.d("Order List: ",""+object.toString());
