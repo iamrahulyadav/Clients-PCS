@@ -30,6 +30,7 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -838,15 +839,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
     public void parseCouponList(String data1) {
 
-        Log.d("coupon list ", data1.toString());
+        Log.d("Notifi list ", data1.toString());
         // dismiss the progress dialog after receiving data from API
         try {
             // JSON Parsing of data
             JSONObject obj=new JSONObject(data1);
-
+            int unread = 0;
             String ss=obj.getString("data");
             JSONArray jsonArray = new JSONArray(ss);
-            setupBadge(textNotificationItemCount, jsonArray.length());
+            for(int i=0; i< jsonArray.length(); i++){
+                JSONObject object = jsonArray.getJSONObject(i);
+                if(object.getString("status").equalsIgnoreCase("unread")){
+                    unread = unread+1;
+                }
+            }
+            setupBadge(textNotificationItemCount, unread);
         } catch (JSONException e) {
             e.printStackTrace();
         }

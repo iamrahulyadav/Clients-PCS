@@ -1,5 +1,6 @@
 package edu10g.android.quiz.testseries.fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -16,6 +17,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -171,7 +173,14 @@ public class PaymentFragment extends Fragment {
         //calculateOrderValue();
         orderItemList.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL, false));
         couponRecyclerview.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL, false));
-
+        counponCode.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         calculateOrderValue();
         paymentNow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,6 +226,10 @@ public class PaymentFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
 
 
     public void calculateOrderValue() {
@@ -251,7 +264,7 @@ public class PaymentFragment extends Fragment {
                 double allBottleAmounts = ( bottleRate * units);
                 double itemTax = (allBottleAmounts * taxRate) / 100;
                 totalTax = totalTax + itemTax;
-                totalPayableAmount = totalPayableAmount + allBottleAmounts + itemTax;
+                totalPayableAmount = totalPayableAmount + allBottleAmounts ;//+ itemTax;
             }
             totalValueWithTax = totalPayableAmount;
             totalTaxtxt.setText("\u20B9"+String.valueOf(totalTax));
@@ -352,7 +365,7 @@ public class PaymentFragment extends Fragment {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject c = jsonArray.getJSONObject(i);
                 Coupon coupon = new Coupon();
-                coupon.setId(c.getInt("CouponId"));
+//              coupon.setId(c.getInt("CouponId"));
                 coupon.setCouponTitle(c.getString("couponTitle"));
                 coupon.setCouponCategory(c.getString("couponCategory"));
                 coupon.setCouponSubTitle(c.getString("couponSubTitle"));

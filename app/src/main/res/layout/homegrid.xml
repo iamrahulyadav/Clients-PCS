@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:weightSum="10">
@@ -127,14 +127,22 @@
             />
 
     </LinearLayout>
-        <android.support.v4.view.ViewPager
+            <com.asksira.loopingviewpager.LoopingViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                app:isInfinite="true"
+                app:autoScroll="true"
+                app:scrollInterval="5000"
+                app:viewpagerAspectRatio="0"/>
+        <!--<android.support.v4.view.ViewPager
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="170dp"
 
             >
-        </android.support.v4.view.ViewPager>
+        </android.support.v4.view.ViewPager>-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -156,6 +164,7 @@
                 android:layout_gravity="center_vertical"
                 />
         </LinearLayout>
+        <!--
         <android.support.v4.view.ViewPager
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/pagerSponsered"
@@ -163,7 +172,15 @@
             android:layout_height="190dp"
             android:layout_gravity="center"
             >
-        </android.support.v4.view.ViewPager>
+        </android.support.v4.view.ViewPager>&lt;!&ndash;&ndash;&gt;-->
+        <com.asksira.loopingviewpager.LoopingViewPager
+            android:id="@+id/pagerSponsered"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            app:isInfinite="true"
+            app:autoScroll="true"
+            app:scrollInterval="5000"
+            app:viewpagerAspectRatio="0"/>
 
     </LinearLayout>
         <View
@@ -191,13 +208,22 @@
             android:layout_height="10dp"
             android:background="@color/grey"
             />
-        <android.support.v4.view.ViewPager
+            <com.asksira.loopingviewpager.LoopingViewPager
+                android:id="@+id/pagerBottom"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                app:isInfinite="true"
+                app:autoScroll="true"
+                app:scrollInterval="5000"
+                app:viewpagerAspectRatio="0"/>
+        <!--<android.support.v4.view.ViewPager
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/pagerBottom"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             >
-        </android.support.v4.view.ViewPager>
+        </android.support.v4.view.ViewPager>-->
+
         <View
             android:layout_width="match_parent"
             android:layout_height="10dp"

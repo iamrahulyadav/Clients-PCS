@@ -18,7 +18,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.TimeZone;
 
 import edu10g.android.quiz.testseries.R;
 import edu10g.android.quiz.testseries.adapters.NotificationAdapter;
@@ -61,6 +66,9 @@ public class Notifications extends Fragment {
         }else{
             Toast.makeText(getActivity(),"Please login first to view Orders! ",Toast.LENGTH_SHORT).show();
         }
+
+
+
         return rootView;
 
     }
@@ -99,7 +107,7 @@ public class Notifications extends Fragment {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject c = jsonArray.getJSONObject(i);
                 Notification notification = new Notification();
-                notification.setId(c.getInt(""));
+                notification.setId(c.getInt("notify_id"));
                 notification.setNotificationTitle(c.getString("title"));
                 notification.setNotification_description(c.getString("description"));
                 notification.setRead(c.getString("status"));
@@ -115,7 +123,7 @@ public class Notifications extends Fragment {
             notificationAdapter = new NotificationAdapter(getActivity(), couponArrayList);
             orderList.setAdapter(notificationAdapter);
             notificationAdapter.setOnItemClickListener(listener);
-
+            updateNotificationList();
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -131,6 +139,27 @@ public class Notifications extends Fragment {
             JSONObject packet = new JSONObject();
             UserSessionManager userSessionManager=new UserSessionManager(getActivity());
             packet.put("user_id",userSessionManager.getUserDetails().get(UserSessionManager.KEY_USERID));
+            return packet;
+        } catch (Exception e) {
+            Log.e("Exception: ",""+e.getLocalizedMessage());
+            return null;
+        }
+    }
+
+
+    private JSONObject addJsonUpdateObjects() {
+        try {
+
+
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Date date = new Date();
+            Log.d("Current time: ",""+formatter.format(date));
+
+
+            JSONObject packet = new JSONObject();
+            UserSessionManager userSessionManager=new UserSessionManager(getActivity());
+            packet.put("user_id",userSessionManager.getUserDetails().get(UserSessionManager.KEY_USERID));
+            packet.put("datetime", formatter.format(date));
             return packet;
         } catch (Exception e) {
             Log.e("Exception: ",""+e.getLocalizedMessage());
@@ -166,7 +195,7 @@ public class Notifications extends Fragment {
         });
     }
     void updateNotificationList(){
-        CallWebService.getInstance(getActivity(),true).hitJSONObjectVolleyWebServiceforPost(Request.Method.POST, Api_Url.updateNotifi, addJsonObjects(), true, new CallBackInterface() {
+        CallWebService.getInstance(getActivity(),true).hitJSONObjectVolleyWebServiceforPost(Request.Method.POST, Api_Url.updateNotifi, addJsonUpdateObjects(), true, new CallBackInterface() {
             @Override
             public void onJsonObjectSuccess(JSONObject object) {
                 Log.d("Order List: ",""+object.toString());

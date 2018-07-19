@@ -806,7 +806,7 @@ public class Quiz extends Fragment implements View.OnClickListener{
             gridView.setAdapter(quizApender);
             quizApender.setListener(listener);
             setDynamicHeight(gridView);
-
+            buttonArrayList.get(0).setBackgroundResource(R.drawable.quizbutton6);
             String qnumber=String.valueOf(currentquestion+1);
             qno.setText("Question "+qnumber+")");
             if(listdata.size()>0) {
@@ -867,14 +867,14 @@ public class Quiz extends Fragment implements View.OnClickListener{
                 break;
 
         }
-       update(position);
+       update(id, position);
 
     }
-  private void update(int position){
+  private void update(int index,int position){
         try {
             for(int i=0; i< buttonArrayList.size(); i++)
             {
-              if(i == position){
+              if(i == index){
                   buttonArrayList.get(i).setBackgroundResource(R.drawable.quizbutton6);
               }else{
                   buttonArrayList.get(i).setBackgroundResource(R.drawable.quizbutton1);

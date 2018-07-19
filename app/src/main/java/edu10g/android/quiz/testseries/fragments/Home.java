@@ -25,6 +25,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.android.volley.Request;
+import com.asksira.loopingviewpager.LoopingViewPager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,7 +46,6 @@ import edu10g.android.quiz.testseries.interfaces.OnRecyclerViewItemClickListener
 import edu10g.android.quiz.testseries.models.Banner;
 import edu10g.android.quiz.testseries.models.Cdata;
 
-//import com.squareup.picasso.Picasso;
 
 /**
  * Created by Vikram on 12/29/2017.
@@ -56,12 +56,13 @@ public class Home extends Fragment{
     private RecyclerView gridview;
     private HomeAdapter gridviewAdapter;
     //public static String str;
+    private LoopingViewPager viewPager;
     private ArrayList<Cdata> data = new ArrayList<>();
     private EditText etsearch;
     private NestedScrollView scrollView;
     private OnRecyclerViewItemClickListener listener;
     private ArrayList<Banner> bannerArrayList,sponseredList,studyMaterialList;
-    private ViewPager viewPager,viewPagerBottom,viewPagerSponsered;
+    private ViewPager viewPagerBottom,viewPagerSponsered;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -73,7 +74,7 @@ public class Home extends Fragment{
         scrollView = (NestedScrollView) view.findViewById(R.id.scroll);
         scrollView.setVisibility(View.GONE);
         etsearch=(EditText)view.findViewById(R.id.searchEditText);
-        viewPager = (ViewPager) view.findViewById(R.id.pager);
+        viewPager = (LoopingViewPager) view.findViewById(R.id.pager);
         viewPagerBottom = (ViewPager) view.findViewById(R.id.pagerBottom);
         viewPagerSponsered = (ViewPager) view.findViewById(R.id.pagerSponsered);
         viewPager.setClipToPadding(false);
@@ -222,7 +223,17 @@ public class Home extends Fragment{
         animators.start();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        viewPager.resumeAutoScroll();
+    }
 
+    @Override
+    public void onPause() {
+        viewPager.pauseAutoScroll();
+        super.onPause();
+    }
 
     public void hideKeyboard(View view) {
         InputMethodManager inputMethodManager =(InputMethodManager)getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
@@ -314,19 +325,15 @@ public class Home extends Fragment{
                 view.setTranslationX(view.getWidth() * position);
                 view.setAlpha(1.0F);
             } else {
-                // position is between -1.0F & 0.0F OR 0.0F & 1.0F
                 view.setTranslationX(view.getWidth() * -position);
                 view.setAlpha(1.0F - Math.abs(position));
             }
         }
-
     }
 
     private JSONObject addJsonObjects() {
         try {
-
             JSONObject packet = new JSONObject();
-
             return packet;
         } catch (Exception e) {
             Log.e("Exception: ",""+e.getLocalizedMessage());
@@ -341,9 +348,7 @@ public class Home extends Fragment{
                 Log.d("Quiz List: ",""+object.toString());
                 try {
                     ParseData(object.toString());
-
                 } catch (NullPointerException e) {
-
                     e.printStackTrace();
                 }
             }
@@ -355,7 +360,6 @@ public class Home extends Fragment{
 
             @Override
             public void onFailure(String str) {
-
                 Log.e("failure: ",""+str);
             }
         });

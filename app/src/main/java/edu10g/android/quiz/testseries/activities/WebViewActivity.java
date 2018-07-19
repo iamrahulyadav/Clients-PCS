@@ -63,8 +63,6 @@ public class WebViewActivity extends AppCompatActivity {
         }
     }
 
-
-
     private class RenderView extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
@@ -83,22 +81,18 @@ public class WebViewActivity extends AppCompatActivity {
                 vEncVal.append(ServiceUtility.addToPostParams(AvenuesParams.CURRENCY, mainIntent.getStringExtra(AvenuesParams.CURRENCY)));
                 encVal = RSAUtility.encrypt(vEncVal.substring(0, vEncVal.length() - 1), vResponse);  //encrypt amount and currency
             }
-
             return null;
         }
 
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            // Dismiss the progress dialog
-           // Log.d("Payment Result: ",""+result);
             LoadingDialog.cancelLoading();
 
             @SuppressWarnings("unused")
             class MyJavaScriptInterface {
                 @JavascriptInterface
                 public void processHTML(String html) {
-                   // Log.d("Payment status: ", ""+html);
                     String status = null;
                     if (html.indexOf("Failure") != -1) {
                         status = "Transaction Declined!";
@@ -110,8 +104,7 @@ public class WebViewActivity extends AppCompatActivity {
                         status = "Status Not Known!";
                     }
                     if((html.indexOf("Success") != -1)) {
-
-
+                        status = "Transaction Successful!";
                     }
                 }
             }
@@ -125,17 +118,14 @@ public class WebViewActivity extends AppCompatActivity {
                     super.onPageFinished(webview, url);
                     LoadingDialog.cancelLoading();
                     if (url.indexOf("/success") != -1) {
-                        //Log.d("success response: ",""+url);
-                        String status = "Transaction Successful!";
-                        /*Toast.makeText(getApplicationContext(), status, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), StatusActivity.class);
-                        intent.putExtra("transStatus", status);
-                        startActivity(intent);
-                        finish();*/
-
                         sendPaymentData(mainIntent.getStringExtra(AvenuesParams.ORDER_ID));
-
-                        //webview.loadUrl("javascript:window.HTMLOUT.processHTML('<head>'+document.getElementsByTagName('html')[0].innerHTML+'</head>');");
+                        MyOrders fragment2 = new MyOrders();
+                        FragmentManager fragmentManager = MainActivity.act.getFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.frame_container, fragment2);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commitAllowingStateLoss();
+                        finish();
                     }
                 }
 
@@ -217,19 +207,6 @@ public class WebViewActivity extends AppCompatActivity {
         }
     }
 
-    private JSONObject addJsonObject(String str, String id) {
-        try {
-            String data = AvenuesParams.ACCESS_CODE+"="+str+"&order_id="+id;
-            JSONObject packet = new JSONObject();
-            packet.put("order_id", id);
-            packet.put("access_code", str);
-            //packet.put("")
-            return packet;
-        } catch (Exception e) {
-            Log.e("Exception: ",""+e.getLocalizedMessage());
-            return null;
-        }
-    }
 
     public void show_alert(String msg) {
         AlertDialog alertDialog = new AlertDialog.Builder(
@@ -257,25 +234,15 @@ public class WebViewActivity extends AppCompatActivity {
 
     public void parsePaymentData(String data1) {
 
-        Log.d("Order sent:  ", data1.toString());
+        Log.d("Payment data sent:  ", data1.toString());
         // dismiss the progress dialog after receiving data from API
         try {
-            // JSON Parsing of data
             JSONObject obj=new JSONObject(data1);
-            MyOrders fragment2 = new MyOrders();
-            FragmentManager fragmentManager = MainActivity.act.getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.frame_container, fragment2);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commitAllowingStateLoss();
-            finish();
-
         } catch (JSONException e) {
             e.printStackTrace();
         }catch (IllegalStateException e){
             Log.e("IllegalStateExcep: ",""+e.getLocalizedMessage());
         }
-
 
     }
 
@@ -283,7 +250,6 @@ public class WebViewActivity extends AppCompatActivity {
 
     private JSONObject addJsonObjects(String orderId) {
         try {
-
             JSONObject packet = new JSONObject();
             UserSessionManager userSessionManager=new UserSessionManager(this);
             packet.put("user_id",userSessionManager.getUserDetails().get(UserSessionManager.KEY_USERID));
@@ -312,7 +278,7 @@ public class WebViewActivity extends AppCompatActivity {
     }
 
     void sendPaymentData(String orderId){
-        CallWebService.getInstance(this,false).hitJSONObjectVolleyWebServiceforPost(Request.Method.POST, Api_Url.getToCart, addJsonObjects(orderId), true, new CallBackInterface() {
+        CallWebService.getInstance(this,false).hitJSONObjectVolleyWebServiceforPost(Request.Method.POST, Api_Url.Ordertransection, addJsonObjects(orderId), true, new CallBackInterface() {
             @Override
             public void onJsonObjectSuccess(JSONObject object) {
                 Log.d("Quiz List: ",""+object.toString());
@@ -320,7 +286,6 @@ public class WebViewActivity extends AppCompatActivity {
                     parsePaymentData(object.toString());
 
                 } catch (NullPointerException e) {
-
                     e.printStackTrace();
                 }
             }
@@ -332,7 +297,6 @@ public class WebViewActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(String str) {
-
                 Log.e("failure: ",""+str);
                 Toast.makeText(WebViewActivity.this, ""+str, Toast.LENGTH_SHORT).show();
             }
