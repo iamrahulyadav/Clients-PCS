@@ -24,13 +24,13 @@ public class Api_Url {// http://edu10g.com/appportal/api/registration
     public static final String Filter_Get_LanguageUrl=subBaseUrl+"getTesetseriesPackageFiltersLanguage";
     public static final String Filter_Get_SubjectUrl=subBaseUrl+"getTesetseriesPackageFiltersSubject";
     public static final String Filter_Get_BrandUrl=subBaseUrl+"getTesetseriesPackageFiltersBrand";
-    public static final String Get_Package_Quizs_ListingUrl=subBaseUrl+"getPackageQuizs";
+    public static final String Get_Package_Quizs_ListingUrl="http://edu10g.com/appportal/app/Testseries/getPackageQuizs";//subBaseUrl+"getPackageQuizs";
     public static final String Get_Quiz_DetailUrl=subBaseUrl+"getQuizDetail";
     public static final String Quiz_StartUrl=subBaseUrl+"attempt";
     public static final String Quiz_ResultUrl=subBaseUrl+"quiz_result";
     public static final String OrderDetailsUrl=baseUrl+"app/my_orders/odetails";
     public static final String MyOrderApi=baseUrl+"app/my_orders/my_orders";
-    public static final String Ordertransection=baseUrl+"tpayment/paymenttransaction";
+    public static final String Ordertransection="https://edu10g.com/appportal/app/tpayment/paymenttransaction";
     public static final String submitquiz=subBaseUrl+"submitQuiz";
     public static final String result_details=subBaseUrl+"quiz_result_detail";
     public static final String getToCart="https://edu10g.com/appportal/app/wishlist/getCartDetail";

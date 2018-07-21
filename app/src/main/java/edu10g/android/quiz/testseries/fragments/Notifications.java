@@ -26,6 +26,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import edu10g.android.quiz.testseries.R;
+import edu10g.android.quiz.testseries.activities.MainActivity;
 import edu10g.android.quiz.testseries.adapters.NotificationAdapter;
 import edu10g.android.quiz.testseries.common.Api_Url;
 import edu10g.android.quiz.testseries.common.FixedValue;
@@ -99,8 +100,6 @@ public class Notifications extends Fragment {
             // JSON Parsing of data
             JSONObject obj=new JSONObject(data1);
             couponArrayList = new ArrayList<>();
-
-
             String ss=obj.getString("data");
             JSONArray jsonArray = new JSONArray(ss);
             itemCounter.setText("Notifications("+jsonArray.length()+")");
@@ -198,9 +197,10 @@ public class Notifications extends Fragment {
         CallWebService.getInstance(getActivity(),true).hitJSONObjectVolleyWebServiceforPost(Request.Method.POST, Api_Url.updateNotifi, addJsonUpdateObjects(), true, new CallBackInterface() {
             @Override
             public void onJsonObjectSuccess(JSONObject object) {
-                Log.d("Order List: ",""+object.toString());
+                Log.d("update Response: ",""+object.toString());
                 try {
-                    ParseData(object.toString());
+                   // ParseData(object.toString());
+                    new MainActivity().clearNotificationList();
 
                 } catch (NullPointerException e) {
 

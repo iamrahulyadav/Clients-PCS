@@ -65,9 +65,11 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     @Override
     public void onBindViewHolder(final NotificationAdapter.ViewHolder viewHolder, final int position) {
         final ViewHolder holder = (ViewHolder) viewHolder;
-        try {
+        try {// dd MMM yyyy HH:mm:ss
             viewHolder.bookTitle.setText(bottleData.get(position).getNotificationTitle());
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm:ss.SSS'Z'");
+            viewHolder.description.setText(bottleData.get(position).getNotification_description());
+            viewHolder.time.setText(bottleData.get(position).getAdded_date());
+            SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy HH:mm a");
             sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
             long time = sdf.parse(bottleData.get(viewHolder.getAdapterPosition()).getAdded_date()).getTime();
             long now = System.currentTimeMillis();
@@ -99,7 +101,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     // inner class to hold a reference to each item of RecyclerView
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView bookTitle,couponAmount,couponCode, time;
+        private TextView bookTitle,description,couponCode, time;
         private RelativeLayout orderLayout;
 
 
@@ -108,7 +110,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             orderLayout = (RelativeLayout) itemLayoutView.findViewById(R.id.orderLayout);
             bookTitle = (TextView) itemLayoutView.findViewById(R.id.name);
             time = (TextView) itemLayoutView.findViewById(R.id.time);
-            couponAmount = (TextView) itemLayoutView.findViewById(R.id.viewDetails);
+            description = (TextView) itemLayoutView.findViewById(R.id.viewDetails);
             couponCode = (TextView) itemLayoutView.findViewById(R.id.couponCode);
 
         }

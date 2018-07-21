@@ -596,18 +596,20 @@ public class Showcategary extends Fragment {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         //dialog.setCancelable(false);
         dialog.setContentView(R.layout.sortnewlayout);
+        WindowManager.LayoutParams lWindowParams = new WindowManager.LayoutParams();
+        lWindowParams.copyFrom(dialog.getWindow().getAttributes());
+        lWindowParams.width = WindowManager.LayoutParams.FILL_PARENT; // this is where the magic happens
+        lWindowParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        //dialog.show();// I was told to call show first I am not sure if this it to cause layout to happen so that we can override width?
+        lWindowParams .gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(lWindowParams);
 
-        Window window = dialog.getWindow();
-        WindowManager.LayoutParams layoutParams =  window.getAttributes();
-        layoutParams .gravity = Gravity.BOTTOM;
 
-        window.setAttributes(layoutParams);
+      //  window.setAttributes(layoutParams);
 
 
         RadioGroup radioGroup = (RadioGroup) dialog.findViewById(R.id.states);
-        radioGroup.setLayoutParams(new RadioGroup.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT));
+        //radioGroup.setLayoutParams(new RadioGroup.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT));
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
             @Override

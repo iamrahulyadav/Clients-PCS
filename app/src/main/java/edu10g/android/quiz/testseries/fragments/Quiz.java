@@ -13,6 +13,7 @@ import android.os.CountDownTimer;
 import android.support.annotation.RequiresApi;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -98,20 +99,14 @@ public class Quiz extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.quizlayout,
-                container, false);
+        view = inflater.inflate(R.layout.quizlayout, container, false);
         FixedValue.Quizeflag=true;
-        //dd1=new QuizJsonDataParse();
-        //ly=(LinearLayout)view.findViewById(R.id.quizlayout1);
-        // ly.setMovementMethod(new ScrollingMovementMethod());
         quizLayout = (LinearLayout) view.findViewById(R.id.quizlayout1);
         questionLayout = (RelativeLayout) view.findViewById(R.id.questionLayout);
         quizLayout.setVisibility(View.INVISIBLE);
         questionLayout.setVisibility(View.INVISIBLE);
         buttonLayout = (LinearLayout) view.findViewById(R.id.categoryLayout);
-        //buttonLayout.setVisibility(View.GONE);
         gridLayout = (LinearLayout) view.findViewById(R.id.gridLayout);
-       // gridLayout.setVisibility(View.GONE);
 
         review=(Button)view.findViewById(R.id.bt1);
         quetionImage = (ImageView) view.findViewById(R.id.quetionImage);
@@ -193,7 +188,14 @@ public class Quiz extends Fragment implements View.OnClickListener{
             public void onRecyclerViewItemClicked(int position, int id) {
                 try {
                     FixedValue.KEYPAD = true;
+
                     FixedValue.KEYPADQUESTIONno = position ;
+                    for(int i=0; i< buttonNameArrayList.size(); i++) {
+                        if (position >= buttonNameArrayList.get(i).getIndex() && position <= buttonNameArrayList.get(i).getLastIndex()){
+
+                            updateCategory(i);
+                        }
+                    }
 
                     gridViewData.get(position).setStatus(3);
                     quizApender.notifyDataSetChanged();
@@ -216,8 +218,7 @@ public class Quiz extends Fragment implements View.OnClickListener{
             @Override
             public void onClick(View view) {
                 try {
-                    /*if (currentquestion < listdata.size())
-                        currentquestion++;*/
+
                     if (ddds > 0) {
                         currentquestion = ddds;
                         ddds = 0;
@@ -244,7 +245,7 @@ public class Quiz extends Fragment implements View.OnClickListener{
                 if(radioGroup.getCheckedRadioButtonId() !=-1) {
                     // RadioButton checkedRadioButton = (RadioButton)radioGroup.findViewById(radioGroup.getCheckedRadioButtonId());
                    // checkedRadioButton.setChecked(false);
-                   // radioGroup.clearCheck();
+                    radioGroup.clearCheck();
                     opt1.setChecked(false);
                     opt2.setChecked(false);
                     opt3.setChecked(false);
@@ -261,7 +262,6 @@ public class Quiz extends Fragment implements View.OnClickListener{
             @Override
             public void onClick(View view) {
                 try {
-
                     if (ddds > 0) {
                         currentquestion = ddds;
                         ddds = 0;
@@ -281,13 +281,13 @@ public class Quiz extends Fragment implements View.OnClickListener{
                             int radioButtonID = radioGroup.getCheckedRadioButtonId();
                             View radioButton1 = radioGroup.findViewById(radioButtonID);
                             int idx = radioGroup.indexOfChild(radioButton1);
+                            radioGroup.clearCheck();
                             Saved_Answers sb = new Saved_Answers();
                             sb.setQid(listdata.get(currentquestion).getQid());
                             //sb.setQ_option(radioButton.getText().toString());
                             sb.setQ_option(listdata.get(currentquestion).getOptionsArrayList().get(idx).getOid());
                             sb.setScore_u(listdata.get(currentquestion).getOptionsArrayList().get(idx).getScore());
                             rdata.add(sb);
-
                             gridViewData.get(currentquestion).setAnswerOption(idx+1);
 
                         }
@@ -486,6 +486,9 @@ public class Quiz extends Fragment implements View.OnClickListener{
                     if(content_type.equals("E")) {
                         Document doc = Jsoup.parse(dplistdata.get(j).getQuestion());
                         String elt = doc.text();
+                        if(elt != ""){
+                            que.setVisibility(View.VISIBLE);
+                        }
                         que.setText(elt);
                         quetionImage.setImageResource(android.R.color.transparent);
                         //String temp = doc.getElementsByAttributeStarting("src").toString();
@@ -516,6 +519,9 @@ public class Quiz extends Fragment implements View.OnClickListener{
                         Document doc = Jsoup.parse(dplistdata.get(j).getQuestion_h());
                         String elt = doc.text();
                         que.setText(elt);
+                        if(elt != ""){
+                            que.setVisibility(View.VISIBLE);
+                        }
                         String imageUrl = doc.select("img[src]").attr("src");
                         try {
                             if(imageUrl!= null && !imageUrl.equals("")) {
@@ -700,8 +706,6 @@ public class Quiz extends Fragment implements View.OnClickListener{
         dialog.show();
     }
 
-
-
     public void ParseData(String data) {
         // dismiss the progress dialog after receiving data from API
         try {
@@ -733,10 +737,13 @@ public class Quiz extends Fragment implements View.OnClickListener{
                     JSONObject jsonObject = categories.getJSONObject(i);
                     ButtonName buttonName = new ButtonName();
                     buttonName.setIndex(jsonObject.getInt("index"));
+                    if(jsonObject.has("lastindex"))
+                       buttonName.setLastIndex(jsonObject.getInt("lastindex"));
                     buttonName.setName(jsonObject.getString("name"));
                     Button button = new Button(getActivity());
                     button.setText(jsonObject.getString("name"));
                     button.setId(i);
+                    button.setTextSize(TypedValue.COMPLEX_UNIT_PX, 18);
                     LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.WRAP_CONTENT,
                             LinearLayout.LayoutParams.WRAP_CONTENT
@@ -835,9 +842,7 @@ public class Quiz extends Fragment implements View.OnClickListener{
     }
 
     public void onBackPressed() {
-
         postResults(resultId,userId,userEmail,rdata);
-
     }
 
     @Override
@@ -885,6 +890,22 @@ public class Quiz extends Fragment implements View.OnClickListener{
             gridViewData.get(position).setStatus(3);
             quizApender.notifyDataSetChanged();
             ShowQusertion(position, String.valueOf(gridViewData.get(position).getQid()), view);
+        }catch (IndexOutOfBoundsException e){
+            Log.e("IndexException: ",""+e.getLocalizedMessage());
+
+        }
+    }
+    private void updateCategory(int index){
+        try {
+            for(int i=0; i< buttonArrayList.size(); i++)
+            {
+                if(i == index){
+                    buttonArrayList.get(i).setBackgroundResource(R.drawable.quizbutton6);
+                }else{
+                    buttonArrayList.get(i).setBackgroundResource(R.drawable.quizbutton1);
+                }
+            }
+
         }catch (IndexOutOfBoundsException e){
             Log.e("IndexException: ",""+e.getLocalizedMessage());
 

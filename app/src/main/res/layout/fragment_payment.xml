@@ -55,7 +55,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="1dp"
+            android:layout_marginEnd="5dp"
             android:orientation="horizontal">
 
             <TextView
@@ -79,7 +79,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/totalAmount1"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:layout_marginEnd="5dp"
                 android:drawablePadding="5dp"
                 android:gravity="end"
@@ -187,7 +187,7 @@
         android:layout_marginTop="6dp"
         android:layout_marginBottom="6dp"
         android:padding="10dp"
-        android:background="#F2F2F2"
+        android:background="#eff3f4"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -249,8 +249,8 @@
             android:id="@+id/itemTotalLayout"
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
             android:visibility="gone"
             android:orientation="horizontal">
 
@@ -269,7 +269,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/totalProduct"
                 android:gravity="end"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:drawablePadding="5dp"
                 android:layout_weight=".7"
                 android:textColor="@color/black"
@@ -280,8 +280,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -299,7 +299,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/totalTax"
                     android:gravity="end"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     android:drawablePadding="5dp"
                     android:layout_weight=".7"
                     android:textColor="@color/black"
@@ -311,8 +311,8 @@
                 android:id="@+id/promoValueLayout"
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
                 android:visibility="gone"
                 android:orientation="horizontal">
 
@@ -330,7 +330,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/couponDiscount"
                     android:gravity="end"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
 
                     android:drawablePadding="5dp"
                     android:layout_weight=".7"
@@ -352,8 +352,8 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="0dp"
             android:orientation="horizontal">
 
             <TextView
@@ -370,7 +370,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/totalAmount"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:drawablePadding="5dp"
                 android:gravity="end"
                 android:layout_weight=".7"
@@ -403,7 +403,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:gravity="center"
-
+            android:background="#eff3f4"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="wrap_content"

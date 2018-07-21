@@ -3,6 +3,7 @@ package edu10g.android.quiz.testseries.fragments;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.icu.math.BigDecimal;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -58,6 +59,7 @@ public class MyOrders extends Fragment {
         orderList.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL, false));
         FixedValue.SHOWCATAGORY = true;
         FixedValue.SHOWORDERS = false;
+        FixedValue.SHOWCART = false;
         UserSessionManager userSessionManager = new UserSessionManager(getActivity());
         if(userSessionManager.isUserLoggedIn()) {
             getOrderList();
@@ -107,13 +109,16 @@ public class MyOrders extends Fragment {
 
             String ss=obj.getString("data");
             JSONArray jsonArray = new JSONArray(ss);
-            itemCounter.setText("MyOrders("+jsonArray.length()+")");
+            itemCounter.setText("My Orders("+jsonArray.length()+")");
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject c = jsonArray.getJSONObject(i);
                 Orders order = new Orders();
                 order.setOrderId(c.getInt("id"));
                 order.setProductName(c.getString("pname"));
                 order.setImage(c.getString("pimage"));
+                if(c.has("rating")) {
+                    order.setRattings(Float.valueOf(c.getString("rating")));
+                }
                 order.setPrice(Double.parseDouble(c.getString("total_price")));
                 order.setStatus(c.getString("payment_status"));
                 order.setDate(c.getString("date_added"));
@@ -133,11 +138,7 @@ public class MyOrders extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
     }
-
-
 
     private JSONObject addJsonObjects() {
         try {
@@ -159,7 +160,6 @@ public class MyOrders extends Fragment {
                 Log.d("Order List: ",""+object.toString());
                 try {
                     ParseData(object.toString());
-
                 } catch (NullPointerException e) {
 
                     e.printStackTrace();

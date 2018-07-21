@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#eff3f4"
     >
 
     <LinearLayout
@@ -9,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@color/grey"
+        android:background="#eff3f4"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
         >

@@ -11,6 +11,16 @@ public class Orders {
     private String productName;
     private String status;
 
+    public float getRattings() {
+        return rattings;
+    }
+
+    public void setRattings(float rattings) {
+        this.rattings = rattings;
+    }
+
+    private float rattings;
+
     public String getImage() {
         return image;
     }

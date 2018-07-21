@@ -59,9 +59,9 @@ public class PaymentOrderAdapter extends RecyclerView.Adapter<PaymentOrderAdapte
             viewHolder.txtViewTitle.setText(bottleData.get(position).getBrand_title());
            // viewHolder.bookDescription.setText(bottleData.get(position).getPackage_name());
             if (PaymentFragment.FROM.equals("cart") || PaymentFragment.FROM.equals("direct"))
-                viewHolder.price.setText("\u20B9"+String.valueOf((bottleData.get(position).getNew_price())));
+                viewHolder.price.setText("\u20B9"+String.format("%.2f",(bottleData.get(position).getNew_price())));
             else
-                viewHolder.price.setText("\u20B9"+String.valueOf((bottleData.get(position).getNew_price())));
+                viewHolder.price.setText("\u20B9"+String.format("%.2f",(bottleData.get(position).getNew_price())));
             viewHolder.count.setText(String.valueOf(bottleData.get(position).getQuantity()));
             //.tax.setText("Tax (" + String.valueOf(18) + " %)");
         }catch (NullPointerException e){

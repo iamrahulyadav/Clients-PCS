@@ -60,7 +60,7 @@ public class CouponAdapter extends RecyclerView.Adapter<CouponAdapter.ViewHolder
     public void onBindViewHolder(final CouponAdapter.ViewHolder viewHolder, final int position) {
         final ViewHolder holder = (ViewHolder) viewHolder;
         try {
-            viewHolder.bookTitle.setText(bottleData.get(position).getCouponTitle());
+            viewHolder.bookTitle.setText(bottleData.get(position).getCouponCode());
             /*viewHolder.couponCode.setText(bottleData.get(viewHolder.getAdapterPosition()).getCouponCode());
             viewHolder.couponAmount.setText(""+bottleData.get(viewHolder.getAdapterPosition()).getCouponAmount());
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");

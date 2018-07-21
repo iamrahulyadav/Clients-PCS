@@ -77,7 +77,7 @@ public class Config {
             if(timeValue.equals("null"))
                 return null;
 
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss a");
             sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
             long time = sdf.parse(timeValue).getTime();
             long now = System.currentTimeMillis();

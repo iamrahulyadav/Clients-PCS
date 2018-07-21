@@ -11,6 +11,7 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -151,6 +152,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolderItem
         protected void publishResults(CharSequence constraint, FilterResults results) {
             userLists= new ArrayList<>();
             userLists.addAll((ArrayList<Cdata>) results.values);
+            if(userLists.size() == 0){
+                Toast.makeText(context.getApplicationContext(),"Your Searched package not found.", Toast.LENGTH_LONG).show();
+            }
             notifyDataSetChanged();
         }
     }

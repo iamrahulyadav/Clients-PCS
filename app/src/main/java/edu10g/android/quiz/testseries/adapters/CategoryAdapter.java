@@ -105,8 +105,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             holder.addcart.setVisibility(View.GONE);
         }
         holder.txttitle.setText(Config.capitalizeString(ctl.getPackage_name()));
-        holder.price.setText("\u20B9" + String.valueOf(pricess));
-        holder.priceoffer.setText("\u20B9" + String.valueOf(ctl.getNew_price()));
+        holder.price.setText("\u20B9" + String.format("%.2f",pricess));
+        holder.priceoffer.setText("\u20B9" + String.format("%.2f",ctl.getNew_price()));
         holder.txtnooquize.setText("No of Quiz " + ctl.getTotal_no_of_quiz());
         holder.price.setPaintFlags(holder.price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         holder.viewquix.setOnClickListener(new View.OnClickListener() {

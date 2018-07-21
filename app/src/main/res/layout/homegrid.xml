@@ -66,7 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="12dp"
-
+                    android:lines="1"
                     android:layout_margin="5dp"
                     android:paddingStart="45dp"
                     android:background="@drawable/searchrect"
@@ -122,6 +122,7 @@
             android:nestedScrollingEnabled="false"
             android:layout_marginBottom="6dp"
             android:gravity="center"
+            android:minHeight="150dp"
             android:background="@color/white"
             android:stretchMode="columnWidth"
             />
@@ -130,7 +131,7 @@
             <com.asksira.loopingviewpager.LoopingViewPager
                 android:id="@+id/pager"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
+                android:layout_height="190dp"
                 app:isInfinite="true"
                 app:autoScroll="true"
                 app:scrollInterval="5000"
@@ -177,9 +178,8 @@
             android:id="@+id/pagerSponsered"
             android:layout_width="match_parent"
             android:layout_height="190dp"
-            app:isInfinite="true"
-            app:autoScroll="true"
-            app:scrollInterval="5000"
+            app:isInfinite="false"
+            app:autoScroll="false"
             app:viewpagerAspectRatio="0"/>
 
     </LinearLayout>
@@ -212,9 +212,8 @@
                 android:id="@+id/pagerBottom"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                app:isInfinite="true"
-                app:autoScroll="true"
-                app:scrollInterval="5000"
+                app:isInfinite="false"
+                app:autoScroll="false"
                 app:viewpagerAspectRatio="0"/>
         <!--<android.support.v4.view.ViewPager
             xmlns:android="http://schemas.android.com/apk/res/android"

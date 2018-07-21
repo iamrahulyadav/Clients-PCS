@@ -155,10 +155,9 @@
         <com.asksira.loopingviewpager.LoopingViewPager
             android:id="@+id/pager"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            app:isInfinite="true"
-            app:autoScroll="true"
-            app:scrollInterval="5000"
+            android:layout_height="190dp"
+            app:isInfinite="false"
+            app:autoScroll="false"
             app:viewpagerAspectRatio="0"/>
        <!-- <android.support.v4.view.ViewPager
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -196,10 +195,9 @@
         <com.asksira.loopingviewpager.LoopingViewPager
             android:id="@+id/pagerBottom"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            app:isInfinite="true"
-            app:autoScroll="true"
-            app:scrollInterval="5000"
+            android:layout_height="190dp"
+            app:isInfinite="false"
+            app:autoScroll="false"
             app:viewpagerAspectRatio="0"/>
     <!--<android.support.v4.view.ViewPager
         xmlns:android="http://schemas.android.com/apk/res/android"

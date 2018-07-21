@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_gravity="start|bottom"
     android:gravity="center_vertical"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    >
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
               <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layoutDirection="rtl"
                     android:padding="25dp"
@@ -18,6 +23,7 @@
                     <RadioButton android:id="@+id/first"
                         android:layout_width="match_parent"
                         android:text="Oldest"
+                        android:fontFamily="Arial"
                         android:textSize="15sp"
                         android:textAlignment="textStart"
                         android:layout_gravity="start"
@@ -29,6 +35,8 @@
                         android:fontFamily="Arial"
                         android:layout_width="match_parent"
                         android:textSize="15sp"
+                        android:textAlignment="textStart"
+                        android:layout_gravity="start"
                         android:text="Name (A-Z)"
                         android:buttonTint="#FFFFFF"
                         android:layout_height="wrap_content"  />
@@ -40,6 +48,8 @@
                         android:buttonTint="#FFFFFF"
                         android:layout_height="wrap_content"
                         android:text="Name (Z-A)"
+                        android:textAlignment="textStart"
+                        android:layout_gravity="start"
                         />
 
                     <RadioButton
@@ -50,8 +60,11 @@
                         android:textSize="15sp"
                         android:buttonTint="#FFFFFF"
                         android:layout_height="wrap_content"
+                        android:textAlignment="textStart"
+                        android:layout_gravity="start"
                         />
 
                 </RadioGroup>
+    </RelativeLayout>
 
 </LinearLayout>

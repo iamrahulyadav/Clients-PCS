@@ -75,11 +75,9 @@ public class PaymentFragment extends Fragment {
     private OnRecyclerViewItemClickListener listener;
     private double totalValueWithTax;
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-
         rootView = inflater.inflate(R.layout.fragment_payment,container, false);
         Bundle extras = getArguments();
         FixedValue.ATAMPQUIZ = false;
@@ -119,7 +117,6 @@ public class PaymentFragment extends Fragment {
             order_id = ""+n;
             initializeViews();
 
-
             listener = new OnRecyclerViewItemClickListener() {
                 @Override
                 public void onRecyclerViewItemClicked(int position, int id) {
@@ -139,15 +136,10 @@ public class PaymentFragment extends Fragment {
                 }
             };
         }
-
-
-
-
         return rootView;
     }
 
     public void initializeViews(){
-
         taxRatetxt = (TextView) rootView.findViewById(R.id.taxRate);
         totalTaxtxt = (TextView) rootView.findViewById(R.id.totalTax);
         itemTotalLayout = (LinearLayout) rootView.findViewById(R.id.itemTotalLayout);
@@ -196,6 +188,7 @@ public class PaymentFragment extends Fragment {
                     intent.putExtra(AvenuesParams.REDIRECT_URL, redirectUrl+order_id);
                     intent.putExtra(AvenuesParams.CANCEL_URL, cancelUrl+order_id);
                     intent.putExtra(AvenuesParams.RSA_KEY_URL, rsa_url);
+                    intent.putExtra("from",FROM);
                     startActivity(intent);
                 }catch (NullPointerException e){
                     Log.e("NullPOinterExcep: ",""+e.getLocalizedMessage());
@@ -218,7 +211,6 @@ public class PaymentFragment extends Fragment {
                 onRemoveCode();
             }
         });
-
     }
 
 
@@ -258,19 +250,17 @@ public class PaymentFragment extends Fragment {
                 taxRate = 18;
 
                 double units = bottle.getQuantity();
-                //double tax = (units*taxRate);
 
-                //totalTax = totalTax+ tax;
                 double allBottleAmounts = ( bottleRate * units);
                 double itemTax = (allBottleAmounts * taxRate) / 100;
                 totalTax = totalTax + itemTax;
-                totalPayableAmount = totalPayableAmount + allBottleAmounts ;//+ itemTax;
+                totalPayableAmount = totalPayableAmount + allBottleAmounts + itemTax;
             }
             totalValueWithTax = totalPayableAmount;
-            totalTaxtxt.setText("\u20B9"+String.valueOf(totalTax));
-            totalAmount1.setText("\u20B9"+String.valueOf(Math.round((totalPayableAmount-totalTax) * 100.0) / 100.0));
-            totalProduct.setText("\u20B9"+String.valueOf(Math.round((totalPayableAmount-totalTax) * 100.0) / 100.0));
-            totalPayableAmounttxt.setText("\u20B9"+String.valueOf(Math.round(totalPayableAmount * 100.0) / 100.0));
+            totalTaxtxt.setText("\u20B9"+String.format("%.2f",totalTax));
+            totalAmount1.setText("\u20B9"+String.format("%.2f",Math.round((totalPayableAmount-totalTax) * 100.0) / 100.0));
+            totalProduct.setText("\u20B9"+String.format("%.2f",Math.round((totalPayableAmount-totalTax) * 100.0) / 100.0));
+            totalPayableAmounttxt.setText("\u20B9"+String.format("%.2f",Math.round(totalPayableAmount * 100.0) / 100.0));
         }catch (NullPointerException e){
             Log.e("NullPointerExcep: ",""+e.getLocalizedMessage());
         }catch (ArrayIndexOutOfBoundsException e){
@@ -281,18 +271,19 @@ public class PaymentFragment extends Fragment {
     }
 
     private void onRemoveCode(){
+        counponCode.setText("");
         removeCode.setVisibility(View.GONE);
         applyCode.setVisibility(View.VISIBLE);
         beforeCoupon.setVisibility(View.VISIBLE);
         afterCoupon.setVisibility(View.GONE);
         itemTotalLayout.setVisibility(View.GONE);
         promoValueLayout.setVisibility(View.GONE);
-        totalPayableAmounttxt.setText("\u20B9" + String.valueOf(Math.round(totalValueWithTax * 100.0) / 100.0));
+        totalPayableAmounttxt.setText("\u20B9" + String.format("%.2f",Math.round(totalValueWithTax * 100.0) / 100.0));
     }
 
     private void onCouponSet(String code, double amount){
         try {
-            counponCode.setText("");
+
             itemTotalLayout.setVisibility(View.VISIBLE);
             promoValueLayout.setVisibility(View.VISIBLE);
             applyCode.setVisibility(View.GONE);
@@ -300,12 +291,12 @@ public class PaymentFragment extends Fragment {
             beforeCoupon.setVisibility(View.GONE);
             afterCoupon.setVisibility(View.VISIBLE);
             appliedCode.setText("PROMO CODE " + code + " APPLIED.");
-            couponDiscount.setText("-"+amount);
+            couponDiscount.setText("\u20B9" +"- "+String.format("%.2f",amount));
 
             double codePreV = Double.valueOf(totalPayableAmounttxt.getText().toString().substring(1));
             //double couponV = Double.valueOf(couponDiscount.getText().toString().substring(1));
             double afterCoupon = codePreV - amount;
-            totalPayableAmounttxt.setText("\u20B9" + String.valueOf(Math.round(afterCoupon * 100.0) / 100.0));
+            totalPayableAmounttxt.setText("\u20B9" + String.format("%.2f",Math.round(afterCoupon * 100.0) / 100.0));
         }catch (NullPointerException e){
             Log.e("NullPointerExcep: ",""+e.getLocalizedMessage());
         }catch (NumberFormatException e){

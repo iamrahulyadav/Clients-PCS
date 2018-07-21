@@ -46,6 +46,7 @@ public class WebViewActivity extends AppCompatActivity {
     private String encVal;
     private String vResponse;
     private ArrayList<TestCategory> cartList;
+    private String FROM ;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -54,6 +55,7 @@ public class WebViewActivity extends AppCompatActivity {
         mainIntent = getIntent();
         cartList = new ArrayList<>();
         cartList = mainIntent.getParcelableArrayListExtra("cartList");
+        FROM = mainIntent.getExtras().getString("from");
 
         try {
              getRSAKEY(mainIntent.getStringExtra(AvenuesParams.ACCESS_CODE), mainIntent.getStringExtra(AvenuesParams.ORDER_ID));
@@ -238,6 +240,9 @@ public class WebViewActivity extends AppCompatActivity {
         // dismiss the progress dialog after receiving data from API
         try {
             JSONObject obj=new JSONObject(data1);
+            if(FROM.equalsIgnoreCase("cart")){
+                new MainActivity().clearCartList();
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }catch (IllegalStateException e){

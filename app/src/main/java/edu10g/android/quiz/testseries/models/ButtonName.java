@@ -7,6 +7,16 @@ package edu10g.android.quiz.testseries.models;
 public class ButtonName {
     private int index;
 
+    public int getLastIndex() {
+        return lastIndex;
+    }
+
+    public void setLastIndex(int lastIndex) {
+        this.lastIndex = lastIndex;
+    }
+
+    private int lastIndex;
+
     public int getIndex() {
         return index;
     }

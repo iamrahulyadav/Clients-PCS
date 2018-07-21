@@ -306,7 +306,11 @@ public class LoginActivity extends Activity {
             userdata.setName(account.getDisplayName());
             userdata.setEmail(account.getEmail());
             //userdata.setphone(objdata.getString("phone"));
-            userdata.setProfilePic(account.getPhotoUrl().toString());
+            try {
+                userdata.setProfilePic(account.getPhotoUrl().toString());
+            }catch (NullPointerException e){
+                Log.e("Exception on PhotoUrl:",""+e.getLocalizedMessage());
+            }
             userdata.setLoginType("gmail");
             registrationRequest(account.getId(),userdata.getName(),account.getEmail(),"gmail");
 

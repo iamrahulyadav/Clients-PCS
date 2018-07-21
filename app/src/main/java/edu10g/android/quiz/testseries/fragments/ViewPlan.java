@@ -459,7 +459,10 @@ public class ViewPlan extends Fragment {
             }else {
                 vedio.setVisibility(View.GONE);
             }
-
+            freeL.setVisibility(View.VISIBLE);
+            if(!isPaid){
+                free.setText("Free");
+            }
             try {
                 packagename.setText(pd.getPackage_name());
                 double price = Double.parseDouble(priceviewdata);

@@ -61,6 +61,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         final ViewHolder holder = (ViewHolder) viewHolder;
         try {
             viewHolder.bookTitle.setText(bottleData.get(position).getProductName());
+            //viewHolder.getRating.setMax(5);
+            viewHolder.getRating.setRating(bottleData.get(position).getRattings());
             //viewHolder.viewDetails.setText(bottleData.get(viewHolder.getAdapterPosition()).getOrderNumber());
             try {
                 if(bottleData.get(viewHolder.getAdapterPosition()).getImage()!= null && !bottleData.get(viewHolder.getAdapterPosition()).getImage().equals(""))
@@ -68,13 +70,21 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                 Glide.with(context).load(bottleData.get(position).getImage())
                         .thumbnail(0.5f)
                         .crossFade()
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .diskCacheStrategy(DiskCacheStrategy.NONE)
+
                         .into(viewHolder.productImage);
 
 
             } catch (Exception e) {
                 Log.e("Exception: ",""+e.getMessage());
             }
+
+            viewHolder.productImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onRecyclerViewItemClicked(viewHolder.getAdapterPosition(), -1);
+                }
+            });
             viewHolder.viewDetails.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

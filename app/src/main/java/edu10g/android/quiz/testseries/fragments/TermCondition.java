@@ -2,6 +2,7 @@ package edu10g.android.quiz.testseries.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,7 +60,7 @@ public class TermCondition extends Fragment {
             public void onJsonObjectSuccess(JSONObject object) {
                 try {
                     JSONObject content = object.getJSONObject("content");
-                    txt.setText(content.getString("pageContent"));
+                    txt.setText(Html.fromHtml(content.getString("pageContent")));
 
                 } catch (NullPointerException e) {
 

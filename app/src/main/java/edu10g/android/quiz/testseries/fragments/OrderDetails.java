@@ -70,7 +70,7 @@ public class OrderDetails extends Fragment {
     private OrderDetailsAdapter adapter;
     private ArrayList<OrderDetail> orderDetailArrayList;
     private TextView name,freedemo,pricepackege,offerprice,percentage;
-    private Button viewDetails;
+  //  private Button viewDetails;
     private ProgressDialog pDialog;
     public static final int progress_bar_type = 0;
     private ImageView productImage,download,playVideo;
@@ -97,7 +97,6 @@ public class OrderDetails extends Fragment {
         pricepackege = (TextView) rootView.findViewById(R.id.pricepackege);
         offerprice = (TextView) rootView.findViewById(R.id.offerprice);
         percentage = (TextView) rootView.findViewById(R.id.percentageText);
-        viewDetails = (Button) rootView.findViewById(R.id.viewDetails);
         download = (ImageView) rootView.findViewById(R.id.download);
         productImage = (ImageView) rootView.findViewById(R.id.productImage);
         playVideo = (ImageView) rootView.findViewById(R.id.playVideo);
@@ -201,16 +200,14 @@ public class OrderDetails extends Fragment {
 
                 pd.setQpid(packageDetail.getString("qpid"));
                 //pd.setShort_description(objj.getString("short_description"));
-                if(packageDetail.getString("pimage")!= null && !packageDetail.getString("pimage").equals(""))
+                if(packageDetail.getString("pimage")!= null && !packageDetail.getString("pimage").equals("")) {
                     Glide.with(getActivity()).load(packageDetail.getString("pimage"))
                             .thumbnail(0.5f)
                             .crossFade()
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .into(productImage);
+                }
 
-
-
-                // Picasso.with(getActivity()).load(packageDetail.getString("pimage")).into(productImage);
 
                 pd.setPackage_name(packageDetail.getString("package_name"));
                 pd.setPackage_video_url(packageDetail.getString("package_video_url"));
@@ -224,8 +221,7 @@ public class OrderDetails extends Fragment {
                 if(pd.getPackage_attach_file()!= null && !pd.getPackage_attach_file().equals("")){
                     download.setVisibility(View.VISIBLE);
                 }else{
-                    download.setVisibility(View.GONE);
-                }
+                    download.setVisibility(View.GONE);                }
 
                 try {
                     name.setText(packageDetail.getString("package_name"));
@@ -233,15 +229,15 @@ public class OrderDetails extends Fragment {
                     freedemo.setVisibility(View.VISIBLE);
                     double price = Double.parseDouble(packageDetail.getString("price"));
                     double offer = Double.parseDouble(packageDetail.getString("price_offer"));
+                    double new_price = Double.parseDouble(packageDetail.getString("new_price"));
                     double acprice = price - offer;
                     if (price > 0) {
                         if (offer > 0) {
                             int percen = (int)(offer * 100 / price);
-                            percentage.setText(String.valueOf(percen) + "% OFF");
+                            percentage.setText(String.format("%.0f",offer) + "% OFF");
                             percentage.setVisibility(View.VISIBLE);
                         }
-
-                        pricepackege.setText("\u20B9"+String.format("%.2f",acprice));
+                        pricepackege.setText("\u20B9"+String.format("%.2f",new_price));
                         pricepackege.setVisibility(View.VISIBLE);
                         offerprice.setPaintFlags(offerprice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                         offerprice.setText("\u20B9" + String.format("%.2f",price));

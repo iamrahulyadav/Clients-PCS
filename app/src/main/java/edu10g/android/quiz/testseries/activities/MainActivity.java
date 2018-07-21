@@ -433,6 +433,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Log.e("NullPointerExcep: ",""+e.getLocalizedMessage());
         }
     }
+    public void clearCartList(){
+        try {
+            addcartlist.clear();
+            int number = addcartlist.size();
+            if (textCartItemCount != null) {
+                if (number == 0) {
+                    textCartItemCount.setText("0");
+                    if (textCartItemCount.getVisibility() != View.GONE) {
+                        textCartItemCount.setVisibility(View.GONE);
+                    }
+                } else {
+                    textCartItemCount.setText(String.valueOf(Math.min(number, 99)));
+                    if (textCartItemCount.getVisibility() != View.VISIBLE) {
+                        textCartItemCount.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+        }catch (NullPointerException e){
+            Log.e("NullPointerExcep: ",""+e.getLocalizedMessage());
+        }
+    }
+    public void clearNotificationList(){
+        try {
+            setupBadge(textNotificationItemCount,0);
+        }catch (NullPointerException e){
+            Log.e("NullPointerExcep: ",""+e.getLocalizedMessage());
+        }
+    }
 
 
     public void addToWishList(TestCategory category) {
@@ -490,7 +518,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     return true;
                 }
             } else if (id == R.id.action_ring) {
-                if (Integer.parseInt(textNotificationItemCount.getText().toString()) > 0) {
                     Notifications fragment2 = new Notifications();
                     FragmentManager fragmentManager = MainActivity.this.getFragmentManager();
                     //fragmentManager.findFragmentById()
@@ -499,8 +526,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                     FixedValue.ATAMPQUIZ = false;
-                    return true;
-                }
                 return true;
 
             }
