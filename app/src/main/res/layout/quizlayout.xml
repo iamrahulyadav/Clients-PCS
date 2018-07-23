@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-        <LinearLayout
+    <LinearLayout
+            android:id="@+id/top1"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="#DCDCDC"
@@ -36,7 +37,8 @@
                 android:background="#306754"/>
 
         </LinearLayout>
-        <LinearLayout
+    <LinearLayout
+            android:id="@+id/top2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#90000000">
@@ -111,9 +113,14 @@
             android:background="@drawable/quizbutton5"/>
     </RelativeLayout>
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fillViewport="true"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical"
+        android:visibility="visible"
+        android:layout_marginTop="5dp"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -136,21 +143,20 @@
                 android:minHeight="150dp"
                 android:orientation="vertical"
                 >
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
                     android:minHeight="100dp"
+                    android:layout_gravity="top"
                     android:gravity="start"
+                    android:orientation="vertical"
                     >
 
                     <TextView
                         android:id="@+id/questiontest"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
-                        android:gravity="center_vertical"
                         android:visibility="gone"
                         android:inputType="textMultiLine"
                         android:textColor="#000000" />
@@ -162,7 +168,6 @@
                         android:foregroundGravity="left"
                         android:adjustViewBounds="true"
                         android:minHeight="120dp"
-                        android:layout_below="@+id/questiontest"
                         android:layout_marginStart="10dp"
                         android:scaleType="fitXY"
 
@@ -171,15 +176,12 @@
                         android:id="@+id/questionbelowImage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/quetionImage"
-                        android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
-                        android:gravity="center_vertical"
                         android:inputType="textMultiLine"
                         android:visibility="gone"
                         android:textColor="#000000" />
 
-                </RelativeLayout>
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -199,8 +201,10 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
                         <LinearLayout
                             android:layout_width="0dp"
@@ -362,7 +366,7 @@
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:text="Review Later"
-                android:textSize="12dp"
+                android:textSize="11.5dp"
                 android:layout_margin="5dp"
                 android:background="@drawable/quizbutton1"/>
             <Button

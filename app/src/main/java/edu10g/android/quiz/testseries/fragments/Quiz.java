@@ -1,5 +1,8 @@
 package edu10g.android.quiz.testseries.fragments;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -11,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.RequiresApi;
+import android.support.v4.widget.NestedScrollView;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.util.TypedValue;
@@ -26,6 +30,7 @@ import android.widget.ListAdapter;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -96,6 +101,7 @@ public class Quiz extends Fragment implements View.OnClickListener{
     private ArrayList<ButtonName> buttonNameArrayList;
     private ArrayList<Button> buttonArrayList;
     private TextView textA,textB,textC,textD,textE,textF;
+    private ScrollView scrollView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
@@ -105,6 +111,7 @@ public class Quiz extends Fragment implements View.OnClickListener{
         questionLayout = (RelativeLayout) view.findViewById(R.id.questionLayout);
         quizLayout.setVisibility(View.INVISIBLE);
         questionLayout.setVisibility(View.INVISIBLE);
+        scrollView = (ScrollView) view.findViewById(R.id.scrollView);
         buttonLayout = (LinearLayout) view.findViewById(R.id.categoryLayout);
         gridLayout = (LinearLayout) view.findViewById(R.id.gridLayout);
 
@@ -743,7 +750,7 @@ public class Quiz extends Fragment implements View.OnClickListener{
                     Button button = new Button(getActivity());
                     button.setText(jsonObject.getString("name"));
                     button.setId(i);
-                    button.setTextSize(TypedValue.COMPLEX_UNIT_PX, 18);
+                    button.setTextSize(TypedValue.COMPLEX_UNIT_PX, 19);
                     LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.WRAP_CONTENT,
                             LinearLayout.LayoutParams.WRAP_CONTENT
@@ -821,6 +828,7 @@ public class Quiz extends Fragment implements View.OnClickListener{
                 currentquestion = 0;
                 ShowQusertion(0, ss, view);
             }
+            scroolToTop(scrollView);
             new CountDownTimer(Second*1000, 1000) { // adjust the milli seconds here
 
                 public void onTick(long millisUntilFinished) {
@@ -839,6 +847,42 @@ public class Quiz extends Fragment implements View.OnClickListener{
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+    public void scroolToTop(ScrollView scrollView) {
+        int x = 0;
+        int y = 0;
+        ObjectAnimator xTranslate = ObjectAnimator.ofInt(scrollView, "scrollX", x);
+        ObjectAnimator yTranslate = ObjectAnimator.ofInt(scrollView, "scrollY", y);
+
+        AnimatorSet animators = new AnimatorSet();
+        animators.setDuration(300L);
+        animators.playTogether(xTranslate, yTranslate);
+        animators.addListener(new Animator.AnimatorListener() {
+
+            @Override
+            public void onAnimationStart(Animator arg0) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator arg0) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator arg0) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onAnimationCancel(Animator arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+        animators.start();
     }
 
     public void onBackPressed() {

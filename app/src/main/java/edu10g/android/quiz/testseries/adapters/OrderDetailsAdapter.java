@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import edu10g.android.quiz.testseries.R;
 import edu10g.android.quiz.testseries.common.FixedValue;
 import edu10g.android.quiz.testseries.interfaces.OnRecyclerViewItemClickListener;
+import edu10g.android.quiz.testseries.interfaces.OnRecyclerViewItemClickListener1;
 import edu10g.android.quiz.testseries.models.OrderDetail;
 
 ;
@@ -26,7 +27,7 @@ import edu10g.android.quiz.testseries.models.OrderDetail;
 
 public class OrderDetailsAdapter extends RecyclerView.Adapter<OrderDetailsAdapter.ViewHolder> {
     private ArrayList<OrderDetail> bottleData;
-    OnRecyclerViewItemClickListener listener;
+    OnRecyclerViewItemClickListener1 listener;
     Context context;
 
 
@@ -48,7 +49,7 @@ public class OrderDetailsAdapter extends RecyclerView.Adapter<OrderDetailsAdapte
 
 
 
-    public void setOnItemClickListener(OnRecyclerViewItemClickListener listener) {
+    public void setOnItemClickListener(OnRecyclerViewItemClickListener1 listener) {
         this.listener = listener;
     }
 
@@ -78,7 +79,7 @@ public class OrderDetailsAdapter extends RecyclerView.Adapter<OrderDetailsAdapte
             viewHolder.startNow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.onRecyclerViewItemClicked(position, -1);
+                    listener.onRecyclerViewItemClicked(position, -1,bottleData);
                 }
             });
              viewHolder.language.setText(String.valueOf(bottleData.get(position).getLanguage()));

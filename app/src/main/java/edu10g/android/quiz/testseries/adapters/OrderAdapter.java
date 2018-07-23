@@ -29,8 +29,8 @@ import edu10g.android.quiz.testseries.models.Orders;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
     private ArrayList<Orders> bottleData;
-    OnRecyclerViewItemClickListener listener;
-    Context context;
+    private OnRecyclerViewItemClickListener listener;
+    private Context context;
 
 
     public OrderAdapter(Context ctx, ArrayList<Orders> list) {
@@ -85,7 +85,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                     listener.onRecyclerViewItemClicked(viewHolder.getAdapterPosition(), -1);
                 }
             });
-            viewHolder.viewDetails.setOnClickListener(new View.OnClickListener() {
+            viewHolder.orderLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     listener.onRecyclerViewItemClicked(viewHolder.getAdapterPosition(), -1);

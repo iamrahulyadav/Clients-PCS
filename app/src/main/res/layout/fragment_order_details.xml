@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -11,10 +10,9 @@
         >
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="45dp"
             android:background="#0079ff"
             android:layout_gravity="bottom"
-            android:layout_weight=".12"
             >
 
             <TextView
@@ -32,7 +30,7 @@
         </FrameLayout>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:background="@color/gray"
             android:orientation="horizontal"
             >
@@ -46,149 +44,21 @@
 
                 />
         </RelativeLayout>
-        <RelativeLayout
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            >
+        <LinearLayout
+            android:id="@+id/packageLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             >
-            <RelativeLayout
-                android:id="@+id/orderLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentStart="true"
-                >
-
-                <TextView
-                    android:id="@+id/name"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:paddingStart="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    />
 
 
-
-            </RelativeLayout>
-            <ImageView
-                android:id="@+id/productImage"
-                android:layout_width="70dp"
-                android:layout_height="90dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="50dp"
-                android:scaleType="fitXY"
-                android:layout_alignParentEnd="true"
-
-                />
-        </RelativeLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="#013ADF"
-            android:orientation="vertical">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:background="#FFFF00"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:orientation="horizontal"
-                android:layout_weight=".7">
-                <TextView
-                    android:id="@+id/freedemo"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    android:paddingLeft="5dp"
-                    android:fontFamily="Arial"
-                    android:gravity="center_vertical"
-                    android:text="Free"
-                    android:visibility="gone"
-                    android:layout_height="match_parent"
-                    />
-                <TextView
-                    android:id="@+id/pricepackege"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    android:layout_toRightOf="@+id/freedemo"
-                    android:layout_marginStart="8dp"
-                    android:fontFamily="Arial"
-                    android:gravity="center_vertical"
-                    android:text="Rs: 50"
-                    android:visibility="gone"
-                    android:layout_height="match_parent"
-                    />
-                <TextView
-                    android:id="@+id/offerprice"
-                    android:layout_width="wrap_content"
-                    android:fontFamily="Arial"
-                    android:textColor="@color/red_text"
-                    android:textSize="12dp"
-                    android:layout_toRightOf="@+id/pricepackege"
-                    android:layout_marginStart="8dp"
-                    android:gravity="center_vertical"
-                    android:text="Rs: 40"
-                    android:visibility="gone"
-                    android:layout_height="match_parent"
-                    />
-                <TextView
-                    android:id="@+id/percentageText"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:visibility="gone"
-                    android:layout_toRightOf="@+id/offerprice"
-                    android:fontFamily="Arial"
-                    android:layout_marginStart="8dp"
-                    android:gravity="center_vertical"
-                    android:layout_height="match_parent"
-                    android:text="20%"
-                    />
-                <ImageView
-                    android:id="@+id/download"
-                    android:layout_width="35dp"
-                    android:layout_gravity="end|center_vertical"
-                    android:visibility="gone"
-                    android:layout_toLeftOf="@+id/playVideo"
-                    android:layout_marginStart="5dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="5dp"
-                    android:src="@drawable/download"
-                    android:layout_marginTop="7.5dp"
-                    android:layout_marginBottom="7.5dp"
-                    android:layout_height="35dp"
-                    />
-                <ImageView
-                    android:id="@+id/playVideo"
-                    android:layout_width="35dp"
-                    android:layout_alignParentEnd="true"
-                    android:visibility="gone"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginTop="7.5dp"
-                    android:layout_marginBottom="7.5dp"
-                    android:src="@drawable/play"
-                    android:layout_height="35dp"
-                    />
-            </RelativeLayout>
         </LinearLayout>
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".7"
-            android:id="@+id/orderDetailList"
-
-            >
-
-        </android.support.v7.widget.RecyclerView>
-
+        </android.support.v4.widget.NestedScrollView>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
