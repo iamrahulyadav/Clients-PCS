@@ -71,7 +71,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                         .thumbnail(0.5f)
                         .crossFade()
                         .diskCacheStrategy(DiskCacheStrategy.NONE)
-
+                        .dontTransform()
                         .into(viewHolder.productImage);
 
 

@@ -84,6 +84,7 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder
                 .thumbnail(0.5f)
                 .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .dontTransform()
                 .into(holder.bannerImage);
 
 

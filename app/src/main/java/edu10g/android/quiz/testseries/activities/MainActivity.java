@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Glide.with(this).load(userProfile)
                             .thumbnail(0.5f)
                             .crossFade()
+                            .dontTransform()
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .into(profilePic);
 

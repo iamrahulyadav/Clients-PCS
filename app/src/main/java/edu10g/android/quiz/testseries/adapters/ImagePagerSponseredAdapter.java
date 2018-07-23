@@ -62,6 +62,7 @@ public class ImagePagerSponseredAdapter extends PagerAdapter {
                 .thumbnail(0.5f)
                 .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .dontTransform()
                 .into(imageView);
 
 

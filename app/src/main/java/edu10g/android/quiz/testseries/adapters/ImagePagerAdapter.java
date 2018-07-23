@@ -62,6 +62,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         Glide.with(context).load(bannerArrayList.get(position).getImagePath())
                 .thumbnail(0.5f)
                 .crossFade()
+                .dontTransform()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView);
 

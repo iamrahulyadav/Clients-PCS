@@ -88,6 +88,7 @@ public class WishAdapter extends RecyclerView.Adapter<WishAdapter.ViewHolder> {
              Glide.with(context).load(bottleData.get(position).getIs_image())
                      .thumbnail(0.5f)
                      .crossFade()
+                     .dontTransform()
                      .diskCacheStrategy(DiskCacheStrategy.ALL)
                      .into(viewHolder.productImage);
 

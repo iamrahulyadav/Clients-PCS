@@ -506,6 +506,7 @@ public class Quiz extends Fragment implements View.OnClickListener{
                                         .thumbnail(0.5f)
                                         .crossFade()
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .dontTransform()
                                         .into(quetionImage);
                                 quizLayout.setVisibility(View.VISIBLE);
                                 quetionImage.setVisibility(View.VISIBLE);
@@ -536,6 +537,7 @@ public class Quiz extends Fragment implements View.OnClickListener{
                                 Glide.with(getActivity()).load(imageUrl)
                                         .thumbnail(0.5f)
                                         .crossFade()
+                                        .dontTransform()
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(quetionImage);
                                 quizLayout.setVisibility(View.VISIBLE);

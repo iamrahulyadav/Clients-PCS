@@ -195,6 +195,7 @@ public class OrderDetails extends Fragment {
                         Glide.with(getActivity()).load(packageDetail.getString("pimage"))
                                 .thumbnail(0.5f)
                                 .crossFade()
+                                .dontTransform()
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .into(productImage);
                     }

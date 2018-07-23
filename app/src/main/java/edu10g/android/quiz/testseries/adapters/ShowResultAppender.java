@@ -74,6 +74,7 @@ public class ShowResultAppender extends ArrayAdapter<ShowResultparsejson> {
             Glide.with(mContext).load(imageUrl)
                     .thumbnail(0.5f)
                     .crossFade()
+                     .dontTransform()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(holder.questionImage);
 

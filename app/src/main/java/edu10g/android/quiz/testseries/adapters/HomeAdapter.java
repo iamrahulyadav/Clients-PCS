@@ -94,6 +94,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolderItem
                         .thumbnail(0.5f)
                         .crossFade()
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
+                         .dontTransform()
                         .into(mViewHolder.imgItem);
 
 
