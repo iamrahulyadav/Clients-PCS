@@ -35,17 +35,22 @@ public class ImagePagerStudyAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return bannerArrayList.size();
+        return Integer.MAX_VALUE;
     }
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
         return view ==   object;
     }
-
+    int pos = 0;
     @Override
     public Object instantiateItem(ViewGroup container, final int position) {
        // Context context = ;
+
+        if (pos >= bannerArrayList.size() - 1)
+            pos = 0;
+        else
+            ++pos;
         LayoutInflater inflater = LayoutInflater.from(context);
         ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.study_view, container, false);
         container.addView(layout);
@@ -58,7 +63,7 @@ public class ImagePagerStudyAdapter extends PagerAdapter {
                  .load(bannerArrayList.get(position).getImagePath())
                 // .transform(new RoundedCornersTransform())
                  .into(imageView);*/
-        Glide.with(context).load(bannerArrayList.get(position).getImagePath())
+        Glide.with(context).load(bannerArrayList.get(pos).getImagePath())
                 .thumbnail(0.5f)
                 .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)

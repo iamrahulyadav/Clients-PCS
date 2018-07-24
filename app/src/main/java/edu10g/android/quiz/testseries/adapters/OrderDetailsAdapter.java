@@ -58,7 +58,7 @@ public class OrderDetailsAdapter extends RecyclerView.Adapter<OrderDetailsAdapte
     public void onBindViewHolder(final OrderDetailsAdapter.ViewHolder viewHolder, final int position) {
         final ViewHolder holder = (ViewHolder) viewHolder;
         try {
-            viewHolder.orderNoValue.setText(bottleData.get(position).getQid());
+            viewHolder.orderNoValue.setText(""+(position+1));
             viewHolder.quizNameValue.setText(bottleData.get(position).getQuiz_name());
             viewHolder.noOfQuestions.setText(bottleData.get(viewHolder.getAdapterPosition()).getNoq());
             try {

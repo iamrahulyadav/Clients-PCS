@@ -35,17 +35,23 @@ public class ImagePagerSponseredAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return bannerArrayList.size();
+
+        return Integer.MAX_VALUE;
     }
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
         return view ==   object;
     }
-
+    int pos = 0;
     @Override
-    public Object instantiateItem(ViewGroup container, final int position) {
+    public Object instantiateItem(ViewGroup container, int position) {
        // Context context = ;
+
+        if (pos >= bannerArrayList.size() - 1)
+            pos = 0;
+        else
+            ++pos;
         LayoutInflater inflater = LayoutInflater.from(context);
         ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.sponsered_view, container, false);
         container.addView(layout);
@@ -54,11 +60,7 @@ public class ImagePagerSponseredAdapter extends PagerAdapter {
         ImageView imageView = layout.findViewById(R.id.bannerImage);
        // imageView.setImageResource(mImages[position]);
         // imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        /*Picasso.with(context)
-                .load(bannerArrayList.get(position).getImagePath())
-                //.transform(new RoundedCornersTransform())
-                .into(imageView);*/
-        Glide.with(context).load(bannerArrayList.get(position).getImagePath())
+        Glide.with(context).load(bannerArrayList.get(pos).getImagePath())
                 .thumbnail(0.5f)
                 .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)

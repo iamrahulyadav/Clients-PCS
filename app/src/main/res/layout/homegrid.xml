@@ -180,7 +180,8 @@
             android:layout_height="190dp"
             app:isInfinite="false"
             app:autoScroll="false"
-            app:viewpagerAspectRatio="0"/>
+            app:wrap_content="true"
+            />
 
     </LinearLayout>
         <View
@@ -214,7 +215,8 @@
                 android:layout_height="180dp"
                 app:isInfinite="false"
                 app:autoScroll="false"
-                app:viewpagerAspectRatio="0"/>
+                app:wrap_content="true"
+                />
         <!--<android.support.v4.view.ViewPager
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/pagerBottom"

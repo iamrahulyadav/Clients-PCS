@@ -304,7 +304,7 @@ public class Home extends Fragment{
             viewPagerSponsered.setAdapter(sponseredAdapter);
 
             viewPager.setCurrentItem(1,true);
-            viewPagerBottom.setCurrentItem(1,true);
+            viewPagerBottom.setCurrentItem(0,true);
             viewPagerSponsered.setCurrentItem(0,true);
             gridviewAdapter = new HomeAdapter(getActivity(), data);
             gridview.setAdapter(gridviewAdapter);

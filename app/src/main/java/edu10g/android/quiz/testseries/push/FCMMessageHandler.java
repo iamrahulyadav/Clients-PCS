@@ -90,7 +90,7 @@ public class FCMMessageHandler extends FirebaseMessagingService {
 
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.logo2)
+                .setSmallIcon(R.drawable.app_logo)
                 .setContentTitle(fcmMessage.getData().get("title"))
                 .setContentText(fcmMessage.getData().get("message"))
                 .setAutoCancel(true)
@@ -134,12 +134,6 @@ public class FCMMessageHandler extends FirebaseMessagingService {
             String timestamp = data.getString("timestamp");
             JSONObject payload = data.getJSONObject("payload");
 
-            Log.e(TAG, "title: " + title);
-            Log.e(TAG, "message: " + message);
-            Log.e(TAG, "isBackground: " + isBackground);
-            Log.e(TAG, "payload: " + payload.toString());
-            Log.e(TAG, "imageUrl: " + imageUrl);
-            Log.e(TAG, "timestamp: " + timestamp);
 
 
             if (!NotificationUtils.isAppIsInBackground(getApplicationContext())) {

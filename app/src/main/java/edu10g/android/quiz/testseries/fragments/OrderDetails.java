@@ -208,7 +208,8 @@ public class OrderDetails extends Fragment {
                     } else {
                         playVideo.setVisibility(View.GONE);
                     }
-                    pd.setPackage_attach_file(packageDetail.getString("package_attach_file"));
+                   // pd.setPackage_attach_file(packageDetail.getString("package_attach_file"));
+                    pd.setPackage_attach_file(packageDetail.getString("package_attach_file_paid"));
                     //pd.setPackage_attach_file("http://worldhappiness.report/wp-content/uploads/sites/2/2016/03/HR-V1_web.pdf");
                     if (pd.getPackage_attach_file() != null && !pd.getPackage_attach_file().equals("")) {
                         download.setVisibility(View.VISIBLE);

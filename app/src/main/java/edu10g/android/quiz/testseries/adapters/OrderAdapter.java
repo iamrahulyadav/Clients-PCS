@@ -62,7 +62,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         try {
             viewHolder.bookTitle.setText(bottleData.get(position).getProductName());
             //viewHolder.getRating.setMax(5);
-            viewHolder.getRating.setRating(bottleData.get(position).getRattings());
+           // viewHolder.getRating.setRating(bottleData.get(position).getRattings());
             //viewHolder.viewDetails.setText(bottleData.get(viewHolder.getAdapterPosition()).getOrderNumber());
             try {
                 if(bottleData.get(viewHolder.getAdapterPosition()).getImage()!= null && !bottleData.get(viewHolder.getAdapterPosition()).getImage().equals(""))
@@ -110,7 +110,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         private TextView bookTitle,viewDetails;
         private RelativeLayout orderLayout;
         private ImageView productImage;
-        private RatingBar getRating;
+      //  private RatingBar getRating;
 
 
         public ViewHolder(View itemLayoutView) {
@@ -119,7 +119,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
             bookTitle = (TextView) itemLayoutView.findViewById(R.id.name);
             viewDetails = (TextView) itemLayoutView.findViewById(R.id.viewDetails);
             productImage = (ImageView) itemLayoutView.findViewById(R.id.productImage);
-            getRating = (RatingBar) itemLayoutView.findViewById(R.id.getRating);
+           // getRating = (RatingBar) itemLayoutView.findViewById(R.id.getRating);
 
 
         }

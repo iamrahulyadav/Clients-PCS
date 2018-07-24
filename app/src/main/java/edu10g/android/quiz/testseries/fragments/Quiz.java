@@ -752,7 +752,7 @@ public class Quiz extends Fragment implements View.OnClickListener{
                     Button button = new Button(getActivity());
                     button.setText(jsonObject.getString("name"));
                     button.setId(i);
-                    button.setTextSize(TypedValue.COMPLEX_UNIT_PX, 19);
+                    button.setTextSize(TypedValue.COMPLEX_UNIT_PX, 25);
                     LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.WRAP_CONTENT,
                             LinearLayout.LayoutParams.WRAP_CONTENT

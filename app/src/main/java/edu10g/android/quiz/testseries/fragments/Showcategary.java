@@ -114,6 +114,7 @@ public class Showcategary extends Fragment {
     private String fiterValue = "";
     private HashMap<String, String> sortingMap = new HashMap<>();
     private ViewPager viewPager,viewPagerBottom;
+    private int minPrice =0,maxPrice = 0;
 
     public class FadePageTransformer implements ViewPager.PageTransformer {
         public void transformPage(View view, float position) {
@@ -895,7 +896,11 @@ public class Showcategary extends Fragment {
                 language.setBackgroundColor(Color.parseColor("#D8D8D8"));
             }
         });
-        customSeekbar.setRangeValues(1, 500);
+        if(maxPrice!= 0 && minPrice !=0){
+            customSeekbar.setRangeValues(minPrice, maxPrice);
+        }else {
+            customSeekbar.setRangeValues(1, 500);
+        }
         customSeekbar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Integer>() {
             @Override
             public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Integer minValue, Integer maxValue) {
@@ -903,6 +908,8 @@ public class Showcategary extends Fragment {
                
                 filterType = "price";
                 fiterValue = minValue+":"+maxValue;
+                minPrice = minValue;
+                maxPrice = maxValue;
             }
         });
         customSeekbar.setDrawingCacheBackgroundColor(Color.parseColor("#000000"));
@@ -929,6 +936,8 @@ public class Showcategary extends Fragment {
                 gridviewAdapter.getFilter().filter(fiterValue);
                 gridviewAdapter.setButtonClickListener(buttonClickListener);
                 resetAll();
+                minPrice = 0;
+                maxPrice = 0;
                 dialog.dismiss();
             }
         });
