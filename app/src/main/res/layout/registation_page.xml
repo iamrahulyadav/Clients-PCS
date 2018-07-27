@@ -190,7 +190,7 @@
                 android:inputType="textPassword"
                 android:gravity="center_vertical"
                 android:text=""
-                android:hint=" Conferm Password"/>
+                android:hint=" Confirm Password"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

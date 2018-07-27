@@ -65,8 +65,6 @@ public class ResultShow extends Fragment {
             // JSON Parsing of data
             JSONObject obj=new JSONObject(data);
 
-            //dd.statuscode=obj.getBoolean("statuscode");
-           // dd.message=obj.getString("message");
             String ss=obj.getString("data");
             JSONObject objdata=new JSONObject(ss);
             resultlist = new ArrayList<>();
@@ -86,7 +84,7 @@ public class ResultShow extends Fragment {
             {
                 status.setText("Status "+"\n"+objdata.getString("status"));
                 score.setText("Score "+"\n"+objdata.getString("score_obtained"));
-                percentage.setText("Percentage "+"\n"+objdata.getString("percentile_obtained"));
+                percentage.setText("Percentage "+"\n"+objdata.getString("percentage_obtained"));
                 if(gridView.getVisibility()==View.GONE)
                 {
                     gridView.setVisibility(View.VISIBLE);
