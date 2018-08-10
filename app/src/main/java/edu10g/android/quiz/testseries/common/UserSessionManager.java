@@ -36,6 +36,7 @@ public class UserSessionManager {
     public static final String KEY_EMAIL = "email";
     public static final String KEY_NAME = "name";
     public static final String KEY_PROFILE_PIC = "pic";
+    public static final String KEY_MOBILE = "phone";
 
     // Constructor
     public UserSessionManager(Context context){
@@ -98,11 +99,20 @@ public class UserSessionManager {
         return user;
     }
 
-    public void setUserDetails(String userId,String userName,String userEmail,String userPic){
+    public void setUserDetails(String userId,String userName,String userEmail,String mobile){
         editor.putString(KEY_USERID, userId);
         editor.putString(KEY_NAME, userName);
         editor.putString(KEY_EMAIL, userEmail);
         editor.putBoolean(IS_USER_LOGIN, true);
+        editor.putString(KEY_MOBILE, mobile);
+        editor.apply();
+
+    }
+    public void setUserDetails(String userId,String userName,String userEmail,boolean isLoggedIn,String userPic){
+        editor.putString(KEY_USERID, userId);
+        editor.putString(KEY_NAME, userName);
+        editor.putString(KEY_EMAIL, userEmail);
+        editor.putBoolean(IS_USER_LOGIN, isLoggedIn);
         editor.putString(KEY_PROFILE_PIC, userPic);
         editor.apply();
 

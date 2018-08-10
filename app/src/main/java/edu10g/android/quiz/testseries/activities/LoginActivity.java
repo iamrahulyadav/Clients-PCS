@@ -141,7 +141,7 @@ public class LoginActivity extends Activity {
             }
         };
 
-        setContentView(R.layout.loginlayout);
+        setContentView(R.layout.activity_login);
        // listener = (UpdateListener) LoginActivity.this;
 
 

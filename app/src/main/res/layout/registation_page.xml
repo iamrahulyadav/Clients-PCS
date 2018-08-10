@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -147,11 +148,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight=".8">
-            <EditText
-                android:id="@+id/etpass"
+            android:layout_weight="1.2">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/etPasswordLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                app:passwordToggleEnabled="true"
+                android:layout_margin="5dp"
+                android:textColorHint="@color/divider_color"
+                >
+            <android.support.design.widget.TextInputEditText
+
+                android:id="@+id/etpass"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
                 android:textColorHint="@color/divider_color"
                 android:textColor="#000000"
                 android:textSize="16sp"
@@ -161,9 +171,8 @@
                 android:background="@drawable/editext_tbg"
                 android:paddingLeft="5dp"
                 android:inputType="textPassword"
-                android:gravity="center_vertical"
-                android:text=""
                 android:hint=" Password"/>
+            </android.support.design.widget.TextInputLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -171,6 +180,7 @@
             android:layout_weight=".1">
 
         </LinearLayout>
+<!--
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -192,6 +202,7 @@
                 android:text=""
                 android:hint=" Confirm Password"/>
         </LinearLayout>
+-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"

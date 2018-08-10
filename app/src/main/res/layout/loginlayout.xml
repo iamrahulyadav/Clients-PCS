@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -106,22 +108,29 @@
             <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight=".8">
-            <EditText
-                android:id="@+id/etpasswordlogin"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/divider_color"
-                android:textSize="16sp"
-                android:fontFamily="Arial"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/editext_tbg"
-                android:paddingLeft="5dp"
-                android:inputType="textPassword"
-                android:gravity="center_vertical"
-                android:text=""
-                android:hint="Password"/>
+                android:layout_weight="1.2"
+            >
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/etPasswordLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:passwordToggleEnabled="true"
+                    >
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/etpasswordlogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:textColor="@color/divider_color"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="Arial"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/editext_tbg"
+                        android:paddingLeft="5dp"
+                        android:inputType="textPassword"
+                        android:hint="Password"/>
+                </android.support.design.widget.TextInputLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

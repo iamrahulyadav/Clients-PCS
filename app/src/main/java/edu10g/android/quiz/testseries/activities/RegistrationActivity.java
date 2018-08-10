@@ -53,7 +53,7 @@ import static android.content.ContentValues.TAG;
  */
 
 public class RegistrationActivity extends Activity {
-    private EditText _nameText, _emailText, _phone, _passwordText, _conformPassword;
+    private EditText _nameText, _emailText, _phone, _passwordText;// _conformPassword;
     private Button signup, fbbtn, googlebtn;
     private TextView allreadyaccount;
     private String from = null;
@@ -98,7 +98,11 @@ public class RegistrationActivity extends Activity {
                     userdata.setName(account.getString("first_name") +" "+account.getString("last_name"));
                     userdata.setEmail(account.getString("email"));
                     //userdata.setphone(objdata.getString("phone"));
-                    userdata.setProfilePic(account.getString("profile_pic"));
+                    try {
+                        userdata.setProfilePic(account.getString("profile_pic"));
+                    }catch (NullPointerException e){
+                        Log.e("NullPointerExcep: ",""+e.getLocalizedMessage());
+                    }
                     userdata.setLoginType("facebook");
                     registrationRequest(account.getString("id"),userdata.getName(),account.getString("email"),"facebook");
                 }
@@ -154,7 +158,7 @@ public class RegistrationActivity extends Activity {
         FixedValue.SHOWCATAGORY = true;
         _phone = (EditText) findViewById(R.id.etphone);
         _passwordText = (EditText) findViewById(R.id.etpass);
-        _conformPassword = (EditText) findViewById(R.id.etconfermpass);
+      //  _conformPassword = (EditText) findViewById(R.id.etconfermpass);
         signup = (Button) findViewById(R.id.btnsignupreg);
         // fbbtn = (Button) view.findViewById(R.id.btnfbreg);
         // googlebtn = (Button) view.findViewById(R.id.btngoolglereg);
@@ -213,7 +217,11 @@ public class RegistrationActivity extends Activity {
             userdata.setName(account.getDisplayName());
             userdata.setEmail(account.getEmail());
             //userdata.setphone(objdata.getString("phone"));
-            userdata.setProfilePic(account.getPhotoUrl().toString());
+            try {
+                userdata.setProfilePic(account.getPhotoUrl().toString());
+            }catch (NullPointerException e){
+                Log.e("Exception on PhotoUrl:",""+e.getLocalizedMessage());
+            }
             userdata.setLoginType("gmail");
             registrationRequest(account.getId(),userdata.getName(),account.getEmail(),"gmail");
 
@@ -294,21 +302,7 @@ public class RegistrationActivity extends Activity {
                 //JSONObject user  = data.getJSONObject(0);
                 FixedValue.loginuser_id = user.getString("user_id");
 
-                userSessionManager.setUserDetails(FixedValue.loginuser_id, userdata.getName(), user.getString("email"), userdata.getProfilePic());
-               // listener.onUpdate();
-                    /*Fragment fragment2;
-                    if (from != null) {
-                        fragment2 = new Home();
-                    } else {
-                        fragment2 = new AttemptQuiz();
-                    }
-                    FragmentManager fragmentManager = MainActivity.act.getFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.frame_container, fragment2);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();*/
-
-                // userSessionManager.setUserDetails(userdata.getUse_id(),userdata.getName(),userdata.getEmail(),userdata.getProfilePic());
+                userSessionManager.setUserDetails(FixedValue.loginuser_id, userdata.getName(), user.getString("email"),false, userdata.getProfilePic());
 
                 Intent verifyMobile = new Intent(RegistrationActivity.this, VerifyMobileNumber.class);
                 verifyMobile.putExtra("from", from);
@@ -339,9 +333,9 @@ public class RegistrationActivity extends Activity {
         String email = _emailText.getText().toString();
         String phone = _phone.getText().toString();
         String password = _passwordText.getText().toString();
-        String confermpassword = _conformPassword.getText().toString();
-        if (password.equals(confermpassword)) {
-            registrationRequest(name, email, phone, password, confermpassword);
+       // String confermpassword = _conformPassword.getText().toString();
+        if (password.equals(password)) {
+            registrationRequest(name, email, phone, password, password);
         } else {
             Toast.makeText(RegistrationActivity.this, "password and conferm password not match", Toast.LENGTH_SHORT).show();
             return;
@@ -419,7 +413,7 @@ public class RegistrationActivity extends Activity {
         String email = _emailText.getText().toString();
         String phone = _phone.getText().toString();
         String password = _passwordText.getText().toString();
-        String confermpassword = _conformPassword.getText().toString();
+        //String confermpassword = _conformPassword.getText().toString();
 
         if (name.isEmpty() || name.length() < 3) {
             _nameText.setError("at least 3 characters");
@@ -434,24 +428,30 @@ public class RegistrationActivity extends Activity {
         } else {
             _emailText.setError(null);
         }
-        if (phone.isEmpty() || password.length() == 10) {
-            _phone.setError("at least 10 characters");
+        if (phone.isEmpty() || phone.length() < 10) {
+            _phone.setError("10 digit mobile number is required!");
             valid = false;
         } else {
             _phone.setError(null);
         }
-        if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-            _passwordText.setError("between 4 and 10 alphanumeric characters");
+        if (password.isEmpty()) {
+            _passwordText.setError("Password field is required!");
             valid = false;
         } else {
             _passwordText.setError(null);
         }
-        if (confermpassword.isEmpty() || confermpassword.length() < 4 || confermpassword.length() > 10) {
-            _conformPassword.setError("between 4 and 10 alphanumeric characters");
+        /*if (confermpassword.isEmpty() ) {
+            _conformPassword.setError("Confirm password is required!");
             valid = false;
         } else {
             _conformPassword.setError(null);
         }
+        if(!password.equals(confermpassword)){
+            _conformPassword.setError("Password and Confirm password should be same!");
+            valid = false;
+        }else{
+            _conformPassword.setError(null);
+        }*/
 
         return valid;
     }
@@ -494,7 +494,7 @@ public class RegistrationActivity extends Activity {
                             userdata.setLoginType("N");
                         }
                         //getuserdata.add(userdata);
-                        userSessionManager.setUserDetails(userdata.getUse_id(),userdata.getName(),userdata.getEmail(),userdata.getProfilePic());
+                        userSessionManager.setUserDetails(userdata.getUse_id(),userdata.getName(),userdata.getEmail(),false,userdata.getProfilePic());
                         FixedValue.loginuser_id = userdata.getUse_id();
                        // listener.onUpdate();
                         Intent verifyMobile = new Intent(RegistrationActivity.this, VerifyMobileNumber.class);

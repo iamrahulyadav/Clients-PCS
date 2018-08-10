@@ -584,15 +584,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         {
                             userSessionManager.updateUserLoggedIN(false);
                             //listener.onLogout();
-                            new LoginActivity().logoutUser();
+                           // new LoginActivity().logoutUser();
                             Toast.makeText(MainActivity.this,"User logged-out successfully!", Toast.LENGTH_SHORT).show();
                             updateHeader();
-                            Intent login  = new Intent(MainActivity.this, LoginActivity.class);
+                            Intent login  = new Intent(MainActivity.this, Login_Activity.class);
                             login.putExtra("from", "main");
                             startActivity(login);
                             finish();
                         }else {
-                            Intent login  = new Intent(MainActivity.this, LoginActivity.class);
+                            Intent login  = new Intent(MainActivity.this, Login_Activity.class);
                             login.putExtra("from", "main");
                             startActivity(login);
                             finish();
@@ -634,7 +634,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
     private void goLogin() {
-        Intent login  = new Intent(MainActivity.this, LoginActivity.class);
+        Intent login  = new Intent(MainActivity.this, Login_Activity.class);
         login.putExtra("from", "main");
         startActivity(login);
         finish();

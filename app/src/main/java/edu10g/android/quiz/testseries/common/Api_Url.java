@@ -8,6 +8,7 @@ public class Api_Url {// http://edu10g.com/appportal/api/registration
     public static final String baseUrl ="https://edu10g.com/appportal/"; // http://edu10g.com/appportal/api/social_login
     public static final String subBaseUrl ="https://edu10g.com/appportal/app/testseries/";
     public static final String loginUrl="https://edu10g.com/appportal/api/login";
+    public static final String loginUrl1="http://edu10g.com/appportal/api/saveuserregistrationdata";
     public static final String registationUrl=baseUrl+"api/registration";
     public static final String socialRegistration="https://edu10g.com/appportal/api/social_login";
     public static final String aboutUs="http://edu10g.com/appportal/app/home/content/about_edu10g";
