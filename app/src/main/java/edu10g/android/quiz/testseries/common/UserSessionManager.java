@@ -137,6 +137,13 @@ public class UserSessionManager {
     }
     public void updateUserLoggedIN(boolean status){
         editor.putBoolean(IS_USER_LOGIN, status);
+        if(!status){
+            editor.putString(KEY_NAME, "");
+            editor.putString(KEY_EMAIL, "");
+            editor.putBoolean(IS_USER_LOGIN, status);
+            editor.putString(KEY_PROFILE_PIC, "");
+            editor.putString(KEY_MOBILE, "");
+        }
         editor.apply();
     }
 }

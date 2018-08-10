@@ -7,8 +7,8 @@ android {
         applicationId "edu10g.android.quiz.testseries"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 10
-        versionName "1.1.6"
+        versionCode 11
+        versionName "1.1.7"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
