@@ -1,31 +1,27 @@
 {
   "project_info": {
-    "project_number": "118986064112",
-    "firebase_url": "https://edu10-free-test-series.firebaseio.com",
-    "project_id": "edu10-free-test-series",
-    "storage_bucket": "edu10-free-test-series.appspot.com"
+    "project_number": "510187538699",
+    "firebase_url": "https://edu10g-state-pcs-test.firebaseio.com",
+    "project_id": "edu10g-state-pcs-test",
+    "storage_bucket": "edu10g-state-pcs-test.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:118986064112:android:fc7e66d5c9188691",
+        "mobilesdk_app_id": "1:510187538699:android:9c95ce70f9b9ba43",
         "android_client_info": {
-          "package_name": "edu10g.android.quiz.testseries"
+          "package_name": "edu10g.android.quiz.statepcstest"
         }
       },
       "oauth_client": [
         {
-          "client_id": "118986064112-qbtf4o36e0t200lhmavtqflotrs69oi2.apps.googleusercontent.com",
-          "client_type": 3
-        },
-        {
-          "client_id": "118986064112-uni4einqt25ajdpnku4a2nci49d6e2d8.apps.googleusercontent.com",
+          "client_id": "510187538699-tir0edr9dktsduuki8lmadvlgi6jn19b.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC6I3vyViuTaN_gPda1EFjpKBxNR8gNZC4"
+          "current_key": "AIzaSyBcowKz57OcI8YnJzQnvrZnEFHiP6GGk4M"
         }
       ],
       "services": {

@@ -4,11 +4,11 @@ android {
     compileSdkVersion 26
    // useLibrary 'org.apache.http.legacy'
     defaultConfig {
-        applicationId "edu10g.android.quiz.testseries"
+        applicationId "edu10g.android.quiz.statepcstest"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 11
-        versionName "1.1.7"
+        versionCode 1
+        versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -38,7 +38,8 @@ dependencies {
     implementation 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
     implementation 'com.google.firebase:firebase-messaging:12.0.1'
     implementation 'com.firebaseui:firebase-ui-auth:3.0.0'
-    implementation 'com.google.firebase:firebase-database:12.0.1'
+   // implementation 'com.google.firebase:firebase-auth:16.0.3'
+    // implementation 'com.google.firebase:firebase-database:12.0.1'
     implementation 'com.google.firebase:firebase-auth:12.0.1'
     implementation 'com.google.android.gms:play-services-auth:12.0.1'
     implementation 'com.android.support:cardview-v7:26.1.0'

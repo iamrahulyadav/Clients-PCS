@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="edu10g.android.quiz.testseries">
+    package="edu10g.android.quiz.statepcstest">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -68,7 +68,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="edu10g.android.quiz.testseries.activities.WebViewActivity"
+        <activity android:name="edu10g.android.quiz.statepcstest.activities.WebViewActivity"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="false"
             android:screenOrientation="portrait"
@@ -76,36 +76,14 @@
             android:theme="@style/AppTheme.NoActionBar"
             />
 
-        <activity android:name="edu10g.android.quiz.testseries.activities.ForgotPasswordActivity"
+        <activity android:name="edu10g.android.quiz.statepcstest.activities.ForgotPasswordActivity"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.NoActionBar"
             />
-        <activity android:name="edu10g.android.quiz.testseries.activities.LoginActivity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="false"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
-
-        <activity android:name="edu10g.android.quiz.testseries.activities.Login_Activity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="false"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
-        <activity android:name="edu10g.android.quiz.testseries.activities.RegistrationActivity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="false"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
-        <activity android:name="edu10g.android.quiz.testseries.activities.StatusActivity"
+        <activity android:name="edu10g.android.quiz.statepcstest.activities.LoginActivity"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="false"
             android:screenOrientation="portrait"
@@ -113,7 +91,29 @@
             android:theme="@style/AppTheme.NoActionBar"
             />
 
-        <activity android:name="edu10g.android.quiz.testseries.activities.VerifyMobileNumber"
+        <activity android:name="edu10g.android.quiz.statepcstest.activities.Login_Activity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity android:name="edu10g.android.quiz.statepcstest.activities.RegistrationActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity android:name="edu10g.android.quiz.statepcstest.activities.StatusActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+
+        <activity android:name="edu10g.android.quiz.statepcstest.activities.VerifyMobileNumber"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="false"
             android:screenOrientation="portrait"
