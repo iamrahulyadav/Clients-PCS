@@ -18,7 +18,7 @@ public class Constants {
     public static String MESSAGE = "message";
     public static String MSG = "msg";
     public static String AppId = "application_key";
-    public static String AppIdValue = "StatePcsTest";
+    public static String AppIdValue = "16474ba654b1e9d9dc1eef0123028780";
 
 
     public static class AttemptQuizdata {
