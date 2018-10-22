@@ -103,7 +103,6 @@ public class WishFragment extends Fragment {
 
     public void ParseData(String data1) {
 
-        Log.d("cart ", data1.toString());
         // dismiss the progress dialog after receiving data from API
         try {
             // JSON Parsing of data
@@ -142,7 +141,6 @@ public class WishFragment extends Fragment {
             e.printStackTrace();
         }
 
-
     }
 
 
@@ -152,6 +150,7 @@ public class WishFragment extends Fragment {
 
             JSONObject packet = new JSONObject();
             packet.put("appName","StatePcsTest");
+            packet.put(Constants.AppId,Constants.AppIdValue);
             UserSessionManager userSessionManager=new UserSessionManager(getActivity());
             packet.put("user_id",userSessionManager.getUserDetails().get(UserSessionManager.KEY_USERID));
 
@@ -201,7 +200,7 @@ public class WishFragment extends Fragment {
             packet.put("pid",category.getQpid());
             packet.put("pid_type","");
             packet.put("edate","");
-            packet.put("appName","StatePcsTest");
+            packet.put(Constants.AppId,Constants.AppIdValue);
             return packet;
         } catch (Exception e) {
             Log.e("Exception: ",""+e.getLocalizedMessage());

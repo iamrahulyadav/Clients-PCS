@@ -36,6 +36,7 @@ public class SplashActivity extends Activity
         // Obtain the sharedPreference, default to true if not available
         boolean isSplashEnabled = sp.getBoolean("isSplashEnabled", true);
       final UserSessionManager userSessionManager=new UserSessionManager(this);
+      userSessionManager.updateUserLoggedIN(true);
       if(ApplicationGlobal.getInstance().isNetworkAvailable(this)) {
           if (isSplashEnabled) {
               new Handler().postDelayed(new Runnable() {

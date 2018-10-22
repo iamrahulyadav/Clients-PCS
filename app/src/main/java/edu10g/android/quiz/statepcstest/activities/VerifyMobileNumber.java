@@ -178,7 +178,9 @@ public class VerifyMobileNumber extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = task.getResult().getUser();
+                            String token =   task.getResult().getUser().getIdToken(true).getResult().getToken();
                            // startActivity(new Intent(VerifyMobileNumber.this, MainActivity.class).putExtra("phone", user.getPhoneNumber()));
+                            Log.d("Token: ",""+token);
                             sendMobileNumber(mobileNo);
                         } else {
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -221,6 +223,8 @@ public class VerifyMobileNumber extends AppCompatActivity {
         Log.e("IlligalStateExcep: ",""+e.getLocalizedMessage());
     }catch (NullPointerException e){
         Log.e("NullPointerEXcep: ",""+e.getLocalizedMessage());
+    }catch (IllegalArgumentException e){
+        Log.e("IlligalArgumentExcep: ",""+e.getLocalizedMessage());
     }
     }
 

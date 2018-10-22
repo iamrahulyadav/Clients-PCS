@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import edu10g.android.quiz.statepcstest.R;
 import edu10g.android.quiz.statepcstest.activities.MainActivity;
 import edu10g.android.quiz.statepcstest.common.Api_Url;
+import edu10g.android.quiz.statepcstest.common.Constants;
 import edu10g.android.quiz.statepcstest.common.UserSessionManager;
 import edu10g.android.quiz.statepcstest.helpers.CallBackInterface;
 import edu10g.android.quiz.statepcstest.helpers.CallWebService;
@@ -235,6 +236,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             UserSessionManager userSessionManager=new UserSessionManager(context);
             packet.put("user_id",userSessionManager.getUserDetails().get(UserSessionManager.KEY_USERID));
             packet.put("pid",category.getQpid());
+            packet.put(Constants.AppId,Constants.AppIdValue);
             packet.put("pid_type",category.getProduct_listing_type());
             return packet;
         } catch (Exception e) {

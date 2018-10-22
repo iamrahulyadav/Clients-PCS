@@ -47,7 +47,7 @@ public class Login_Activity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
         // listener = (UpdateListener) LoginActivity.this;
-
+        userSessionManager=new UserSessionManager(this);
 
         _emailText=(EditText) findViewById(R.id.etemaillogin);
         name=(EditText) findViewById(R.id.etnamereg);
@@ -95,15 +95,10 @@ public class Login_Activity extends AppCompatActivity {
                 //getuserdata.add(userdata);
                 FixedValue.loginuser_id = userdata.getUse_id();
                 userSessionManager.createUserLoginSession(email,FixedValue.loginuser_id);
-
-
-
                 Intent mainintent = new Intent(Login_Activity.this, MainActivity.class);
                 startActivity(mainintent);
                 finish();
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
-
 
             }else {
                 Toast.makeText(MainActivity.act,"login Faild email or password incorrect",Toast.LENGTH_SHORT).show();
@@ -189,6 +184,15 @@ public class Login_Activity extends AppCompatActivity {
         verifyMobile.putExtra("via", "normal");
         startActivity(verifyMobile);
         finish();
+
+
+
+        /*FixedValue.loginuser_id = "134";
+        userSessionManager.createUserLoginSession(email,FixedValue.loginuser_id);
+        Intent mainintent = new Intent(Login_Activity.this, MainActivity.class);
+        startActivity(mainintent);
+        finish();
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);*/
 
     }
 }
